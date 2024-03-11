@@ -416,3 +416,24 @@ class Book extends Component {
     }
 }
 
+===========
+
+Thinking in React:
+Atom --> Text, Button, Image
+Molecule --> Card Component [ collection of atoms]
+Organisms --> collection of molecules [ card list]
+Template --> collection of organisms
+Page --> association of different types of templates
+
+-------------------
+
+App
+Filter [Molecule] rfc
+UserList [Organsims] rcc
+User [Molecule] rfc
+
+---
+Class Component can have state and behaviour
+
+props --> mechanism using which parent component can pass data to child
+
