@@ -307,3 +307,19 @@ asset bundle.js 5.28 KiB [emitted] (name: main)
 webpack_react % npm run prod
 asset bundle.js 696 bytes [emitted] [minimized] (name: main)
 
+===========================
+
+The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. 
+This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+Also if you have many bundles  
+
+<script src="../dist/bundle.js"></script>
+
+====
+In Production use : Apache, IIS, NginX, Webpsphere , ...
+
+npm i webpack-dev-server -D
+
+https://webpack.js.org/configuration/devtool/
+
+npm start
