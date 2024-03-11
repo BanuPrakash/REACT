@@ -366,3 +366,53 @@ render() will be different for Web / Mobile / Tv / Desktop  application
 
 https://github.com/chentsulin/awesome-react-renderer
 
+====================================================
+
+Create React App
+Create React App  is the best way to start building a new single-page application in React.
+npx -==> executable node module
+npm i create-react-app -g
+create-react-app sampleapp
+
+Prefer:
+npx create-react-app sampleapp
+
+* creates scaffolding code with "babel","html-webpack-plugin", "css-loader,style-loader", "webpack",...
+"webpack-dev-server --> running on 3000 port"
+includes all required dependencies 
+includes React library [React.createElement]
+includes React-dom library [render()]
+
+Can't see webpack.config.js and babel.config.js [ hidden]
+
+  "start": "react-scripts start",
+   is same as
+   "start": "webpack serve --mode development"
+
+ "build": "react-scripts build", 
+ is same as
+ "build": "webpack --mode development"
+
+"react-scripts" is a wrapper for "webpack" commands
+
+==============
+
+Create Components in React:
+1) React.createElement
+2) Functional Component
+function Book() {
+    return <div>
+        <h1>React Desitmfy</h1>
+        </div>
+}
+
+3) Class Component
+
+class Book extends Component {
+    render() {
+     return <div>
+        <h1>React Desitmfy</h1>
+        </div>
+    }
+}
+

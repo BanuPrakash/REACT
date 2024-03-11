@@ -25,7 +25,7 @@ let book = <div className="card">
     <h4>React Documentation</h4>
 
 </div>
-console.log(book);
+console.log(book); // converted JS object from XML/JSX
 
 function render(element, container) {
     if (['string', 'number'].includes(typeof element)) {
@@ -39,4 +39,4 @@ function render(element, container) {
     container.appendChild(domElement);
 }
 
-render(book, document.getElementById("root"));
+render(book, document.getElementById("root")); //UI 
