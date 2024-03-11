@@ -6,7 +6,7 @@ export default function User(props) {
     return (
         <div className='row'>
             {firstName}, {lastName} &nbsp;
-            <button type="button">Delete</button>
+            <button type="button" onClick={() => props.delEvent(id)}>Delete</button>
         </div>
     )
 }

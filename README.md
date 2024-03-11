@@ -437,3 +437,8 @@ Class Component can have state and behaviour
 
 props --> mechanism using which parent component can pass data to child
 
+index.js --> App.js --> UserList.jsx --->* User.jsx
+
+Whenever state or props change component re-renders
+
+
