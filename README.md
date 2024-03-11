@@ -201,7 +201,32 @@ Grunt is a JavaScript task runner, a tool used to automatically perform frequent
 * Webpack
 * Vite
 
-
 =======
+Steps:
+
+webpack_react> npm init --y
+
+creates a file "package.json", where all dependencies installed are listed and scripts can be placed
+For Java --> pom.xml
 
 
+webpack_react> npm i @babel/core @babel/preset-env @babel/preset-react babel-loader css-loader style-loader html-webpack-plugin webpack webpack-cli -D
+
+
+downloads depenencies and transitive dependencies into "node_modules" folder
+
+-D specifies that the modules are not required in production
+
+```
+ "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.10.0",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+```
