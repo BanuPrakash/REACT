@@ -441,4 +441,15 @@ index.js --> App.js --> UserList.jsx --->* User.jsx
 
 Whenever state or props change component re-renders
 
+====
+
+Application
+* Context as state management
+* use Redux / RTK
+* use Mobx
+
+reconcillation --> execute Diffs algorthim and re-render the component
+https://legacy.reactjs.org/docs/reconciliation.html
+
+Each child in a list should have a unique "key" prop.
 

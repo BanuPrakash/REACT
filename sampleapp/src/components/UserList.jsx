@@ -44,6 +44,8 @@ export default class UserList extends Component {
         this.setState({
             users: userdata
         })
+
+       // this.state.users = userdata; // reconcillation won't happen
     }
     render() {
         return (
@@ -51,7 +53,7 @@ export default class UserList extends Component {
                 <h1>Users List</h1>
                 <Filter />
                 {
-                    this.state.users.map(user => <User customer={user} delEvent={(id) => this.deleteUser(id)} />)
+                    this.state.users.map(user => <User key={user.id} customer={user} delEvent={(id) => this.deleteUser(id)} />)
                 }
             </div>
         )
