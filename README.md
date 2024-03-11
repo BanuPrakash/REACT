@@ -353,3 +353,16 @@ for example:
 src is props
 
 React.createElement creates a VDOM {JS representation DOM}
+
+React.createElement is core API of React library 
+
+Next step is rendering
+JS object to View Component
+
+========
+
+
+render() will be different for Web / Mobile / Tv / Desktop  application
+
+https://github.com/chentsulin/awesome-react-renderer
+
