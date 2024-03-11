@@ -453,5 +453,29 @@ https://legacy.reactjs.org/docs/reconciliation.html
 
 Each child in a list should have a unique "key" prop.
 
+As of React 16 version recommended components was:
+Class Component --> State and behaviour
+functional component --> pure view component
+
+=============================================
+
+
+<Menu title="Delicious Recipes">
+Menu component will have state ==> recipes.txt has the data
+
+<Recipe recipe={recipe} key={recipe.name} />
+
+<Ingredients ingredient={ingredient} key={...}/>
+
+<Steps />
+
+=======
+
+* Add Unit testing and E2E testing 
+* React life cycle methods
+* React Hooks
+* React Context
+* React-router-dom
+
 
 
