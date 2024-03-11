@@ -1,7 +1,8 @@
 const webpack = require('webpack'); // installed --> node_modules
 const path = require('path'); // built in module of NodeJS
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = function (__env, argv) {
     return {
         devtool: "cheap-module-source-map",
@@ -26,7 +27,11 @@ module.exports = function (__env, argv) {
         },
         plugins: [new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "public/index.html")
-        })],
+        }),
+        new CleanWebpackPlugin({
+            verbose: true
+        }),
+        new BundleAnalyzerPlugin()],
         devServer: {
             port: 1234,
             open: true

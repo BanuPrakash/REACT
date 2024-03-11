@@ -323,3 +323,33 @@ npm i webpack-dev-server -D
 https://webpack.js.org/configuration/devtool/
 
 npm start
+
+npm i clean-webpack-plugin -D
+
+npm i webpack-bundle-analyzer -D
+
+===========
+
+
+React Demystify:
+
+React nodes are not real DOM nodes themselves, but a representation of a potential DOM node
+
+Virtual DOM --> DOM
+
+React Node can be a ReactElement, ReactFragment, a string, a number, array of React nodes, null, boolean or undefined
+
+JSX.Element is a ReactElement.
+
+JavaScript and XML
+
+'@babel/preset-react' helps to convert JSX into JavaScript
+
+JSX code --> '@babel/preset-react' [uses object called React] --> JS
+
+props ==> attributes to tag and children
+for example:
+<img src="a.png"/>
+src is props
+
+React.createElement creates a VDOM {JS representation DOM}
