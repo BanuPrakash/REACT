@@ -230,3 +230,16 @@ downloads depenencies and transitive dependencies into "node_modules" folder
     "webpack-cli": "^5.1.4"
   }
 ```
+
+My team members will download the "webpack__react" project with code minus "node_modules" folder
+and execute:
+webpack_react> npm install
+
+"@babel/core": "7.24.0", ==> exact version
+"@babel/core": "^7.24.0", ==> minimun is 7.24.0, if latest is available download
+"@babel/core": "~7.24.0", ==> major version has to be "7", minor and patch can be latest
+7.30.1 is allowed
+
+===========
+
+
