@@ -219,15 +219,15 @@ downloads depenencies and transitive dependencies into "node_modules" folder
 
 ```
  "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/preset-env": "^7.24.0",
+    "@babel/core": "^7.24.0", [done]
+    "@babel/preset-env": "^7.24.0", [done]
     "@babel/preset-react": "^7.23.3",
-    "babel-loader": "^9.1.3",
+    "babel-loader": "^9.1.3", [done]
     "css-loader": "^6.10.0",
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^3.3.4",
-    "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4"
+    "webpack": "^5.90.3", [done]
+    "webpack-cli": "^5.1.4" [done]
   }
 ```
 
@@ -242,4 +242,68 @@ webpack_react> npm install
 
 ===========
 
+@babel/core @babel/preset-env @babel/preset-react babel-loader
+
+babel-loader understands ESM ==> ES6 module system
+JS module system:
+1) CommonJS module system ==> default understaood by NodeJS
+```
+lib.js
+function add() {}
+function subtract() {}
+function doTask() {} // private to lib.js
+module.exports = {
+    add,
+    subtract
+}
+
+other.js
+const {add, subtract} = require('./lib');
+
+``
+
+2) ESM
+```
+export function add() {}
+export function subtract() {}
+function doTask() {} // private to lib.js
+
+other.js
+import {add,subtract} from './lib'
+
+babel-loader loads './lib' into memory and gives to '@babel/core' --> transcompiler
+to covert the code so that it is compatable to target platform
+
+import './logo.svg'; // --> file-loader
+
+import './styles.css'; // --> css-loader --> next course of action is 'style-loader'
+
+'@babel/core' --> transcompiler
+
+tries to covert to lower version
+it can take care of syntax changes by itself
+https://caniuse.com/
+ 
+return new Promise(...); // ES 6 feature
+
+@babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s). 
+
+A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
+
+Polyfill-->https://www.npmjs.com/package/core-js
+
+import 'core-js/actual';
+
+Promise.resolve(42).then(it => console.log(it)); // => 42
+
+``
+https://createapp.dev/webpack
+
+Core Configuration files has to be CommonJS module system
+
+webpack_react % npm run dev
+asset bundle.js 5.28 KiB [emitted] (name: main)
+
+webpack_react % npm run prod
+asset bundle.js 696 bytes [emitted] [minimized] (name: main)
 
