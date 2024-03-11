@@ -1,48 +1,29 @@
 import React, { Component } from 'react'
 import User from './User'
 import Filter from './Filter'
-
+import users from '../data';
 export default class UserList extends Component {
     state = {
-        users: [
-            {
-                id: 1,
-                firstName: 'Rachel',
-                lastName: 'Green'
-            },
-            {
-                id: 2,
-                firstName: 'Monica',
-                lastName: 'Geller'
-            },
-            {
-                id: 3,
-                firstName: 'Joey',
-                lastName: 'Tribuanni'
-            },
-            {
-                id: 4,
-                firstName: 'Ross',
-                lastName: 'Geller'
-            },
-            {
-                id: 5,
-                firstName: 'Phobey',
-                lastName: 'Buffay'
-            },
-            {
-                id: 6,
-                firstName: 'Chandler',
-                lastName: 'Bing'
-            }
-        ]
+        users: users, //for display
+        originalUsers:users
     }
-    // adding behaviour / action / method
-    deleteUser(id) {
-        let userdata = this.state.users.filter(user => user.id !== id);
+
+    filterCustomers(txt) {
+        let userdata = this.state.originalUsers.filter(user => (user.lastName.toLowerCase()
+            .indexOf(txt.toLowerCase()) >= 0));
         // update the state
         this.setState({
             users: userdata
+        })
+    } 
+
+    // adding behaviour / action / method
+    deleteUser(id) {
+        let userdata = this.state.originalUsers.filter(user => user.id !== id);
+        // update the state
+        this.setState({
+            users: userdata,
+            originalUsers: userdata
         })
 
        // this.state.users = userdata; // reconcillation won't happen
@@ -51,7 +32,7 @@ export default class UserList extends Component {
         return (
             <div>
                 <h1>Users List</h1>
-                <Filter />
+                <Filter filterEvt={(txt) => this.filterCustomers(txt)}/>
                 {
                     this.state.users.map(user => <User key={user.id} customer={user} delEvent={(id) => this.deleteUser(id)} />)
                 }
