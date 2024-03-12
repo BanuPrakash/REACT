@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React, { memo } from 'react'
 
-export default class AgeChild extends Component {
-    shouldComponentUpdate(prevProps, prevState) {
-        if (this.props.age === prevProps.age) {
-            return false;
-        }
-        return true;
-    }
-    render() {
-        console.log("<AgeChild /> renders");
-        return (
-            <div>AgeChild, Age: {this.props.age} </div>
-        )
-    }
+function AgeChild(props) {
+    console.log("<AgeChild /> renders");
+    return (
+        <div>AgeChild, Age: {props.age} </div>
+    )
 }
+
+const MemoAgeChild = memo(AgeChild);
+// if props match with previous props in cache return;
+// else return AgeChild(props);
+export default MemoAgeChild;

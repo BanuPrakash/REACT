@@ -670,3 +670,44 @@ componentDidUpdate() plae where dependent API calls needs to be done
 ```
 
 npx create-react-app trials
+
+```
+import React, { Component, PureComponent } from 'react'
+
+export default class NameChild extends PureComponent {
+//   shouldComponentUpdate(prevProps, prevState) {
+//     if (this.props.name === prevProps.name) {
+//         return false;
+//     }
+//     return true;
+// }
+  render() {
+    console.log("<NameChild /> renders");
+    return (
+      <div>Name Child , Name : {this.props.name} </div>
+    )
+  }
+}
+
+import React, { Component } from 'react'
+
+export default class AgeChild extends Component {
+    shouldComponentUpdate(prevProps, prevState) {
+        if (this.props.age === prevProps.age) {
+            return false;
+        }
+        return true;
+    }
+    render() {
+        console.log("<AgeChild /> renders");
+        return (
+            <div>AgeChild, Age: {this.props.age} </div>
+        )
+    }
+}
+
+```
+
+Functional components --> No Life Cycle Methods
+
+Memoize is a pattern -> cache result of expensive function call
