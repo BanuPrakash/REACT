@@ -895,4 +895,16 @@ productsapp> npm i bootstrap react-bootstrap react-router-dom axios @fortawesome
 index.tsx
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
-Resume @ 4:05
+
+https://react-bootstrap.netlify.app/docs/components
+styled-components
+Adobe react specturm
+
+href ==> reload the application
+as={Link} ==> load only desired component and not entire application
+
+If bundle.js size is more ==> leads to FCP issue
+
+<script src="bundle.js"></script>
+
+Solution: lazy load components only when required
