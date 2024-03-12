@@ -600,4 +600,35 @@ screen.getByRole('input');
 
 screen.getByText(/Users List/);
 
+https://testing-library.com/docs/dom-testing-library/api-async/
 ```
+
+Async:
+```
+import React, { useEffect, useState } from 'react';
+import { render, waitFor } from '@testing-library/react';
+
+function AsyncMessage() {
+  const [message, setMessage] = useState('');
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMessage('Hello, World!');
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+  return <p>{message}</p>;
+}
+
+test('displays the message after a delay', async () => {
+  const { getByText } = render(<AsyncMessage />);
+  await waitFor(() => {
+    expect(getByText('Hello, World!')).toBeInTheDocument();
+  });
+});
+```
+
+render(<App/>); // integration testing
+
+Testing components in Isolation
+<User key={user.id} customer={user} delEvent={(id) => this.deleteUser(id)} />)
+        

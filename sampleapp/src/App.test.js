@@ -26,7 +26,7 @@ it("filter a User", () => {
   render(<App />);
   let txtBox = screen.getByPlaceholderText('Search by name');
   fireEvent.change(txtBox, {"target": {"value": "Geller"}});
-  screen.debug();
-  let btns = screen.getAllByRole('button');
+  // screen.debug();
+  let btns =  screen.getAllByRole('button');
   expect(btns.length).toBe(2);
 });
