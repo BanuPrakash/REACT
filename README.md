@@ -477,5 +477,127 @@ Menu component will have state ==> recipes.txt has the data
 * React Context
 * React-router-dom
 
+==================
 
+Day 2
 
+Recap:
+JS build tool --> webpack
+npx create-react-app myapp [internally uses webpack]
+ng new myapp [uses webpack]
+
+webpack:
+* webpack --mode development
+* webpack --mode production [minify, uglify, without source map]
+* webpack-dev-server
+webpack serve --mode development
+* html-webpack-plugin
+-> automate adding scripts into template [index.html]
+* babel-loader, @babel/core, @babel/preset-env, @babel/preset-react
+--> Higher version of JS to lower compatable version code [@babel/preset-env]
+--> to translate JSX to JS object [@babel/preset-react]
+* webpack.config.js
+* babel.config.js / babel.config.json / .babelrc
+
+npx create-react-app sampleapp
+creates scaffolding code internally using webpack
+* index.js --> App.js
+* ReactDOM for rendering web
+--> react-tv / proton-native / react-native ,... other renders are also available
+react-native
+return <View>
+
+</View>
+
+https://ionicframework.com/
+
+--------
+
+* React.createElement() for creating ReactElement
+* functional component returns JSX
+* Class Component
+--> extends Component
+--> render() returns JSX
+--> state & behaviour
+
+always mutate state using
+this.setState({
+    stateVarible: new_value
+})
+
+this triggers reconcillation
+
+Rendering
+```
+upto React 17 version:
+ReactDOM.render(<App />, document.getElementById('root'));
+
+this used Synchronous Stack based rendering
+
+From React 18 version:
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+this uses Fiber Architecture and Concurrency [loosely based on ForkJoinPool Algorithm]
+
+https://claudiopro.github.io/react-fiber-vs-stack-demo/
+
+react-dom.development.js
+
+performUnitOfWork()
+
+Line: 21516
+function beginWork(current, workInProgress, renderLanes) {
+
+Line: 22064
+function completeWork(current, workInProgress, renderLanes) {
+
+React Documentary:
+https://www.youtube.com/watch?v=8pDqJVdNa44
+
+```
+
+Unit Testing:
+JS has the following unit testing frameworks:
+1) Jasmine
+2) Mocha
+3) JEST
+
+npx create-react-app add JEST as the default unit testing framework
+
+ng new myapp ==> Angular adds Jasmine as the default unit testing frameowrk
+
+RTL --> react testing library is built on top of Jest
+  "test": "react-scripts test",
+  npm start
+  npm test
+  npm run build
+  npm run someother
+
+```
+getByRole
+getByLabelText
+getByPlaceholderText
+getByText
+
+<button type="button" onClick={() => props.delEvent(id)}>Delete</button>
+
+screen.getByRole('button');
+
+<input type="text" 
+  onChange={(evt) => props.filterEvt(evt.target.value)}  
+  placeholder='Search by name' />
+
+screen.getByPlaceholderText('Search by name');
+screen.getByRole('input');
+
+<h1> Users List </h1>
+
+screen.getByText(/Users List/);
+
+```
