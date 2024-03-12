@@ -631,4 +631,42 @@ render(<App/>); // integration testing
 
 Testing components in Isolation
 <User key={user.id} customer={user} delEvent={(id) => this.deleteUser(id)} />)
-        
+  
+===========================
+
+Component Life Cycle Methods
+```
+Mounting Phase
+constructor() ==> render() ==> componentDidMount()
+
+class VideoList extends Component {
+    constructor() {
+        // initialization
+        20 dummy title and video links 
+        //create placeholder
+    } 
+
+    render() {
+        render the view with inital data
+        // render placeholder
+    }
+
+    componentDidMount() {
+        // this is the place where API calls should be done
+        // set the state with results from API call
+    }
+}
+
+whenever state changes re-render happens with new state
+
+Having the above approach improve WebVitals ==> FCP
+
+State Changes ==> Updating Phase
+state changes/newprops from parent ==> shouldComponentUpdate() --> false
+
+state changes/newprops from parent ==> shouldComponentUpdate() --> true --> render() --> componentDidUpdate()
+
+componentDidUpdate() plae where dependent API calls needs to be done
+```
+
+npx create-react-app trials
