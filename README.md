@@ -908,3 +908,50 @@ If bundle.js size is more ==> leads to FCP issue
 <script src="bundle.js"></script>
 
 Solution: lazy load components only when required
+
+interface vs Type:
+```
+1) interface are extendable
+
+interface Product {
+  id: number,
+  name: string,
+  price : number
+}
+
+interface Mobile extends Product {
+  camera: string,
+  connectivty: string
+}
+
+1) type are not extendable
+
+2) interface can be used for realization relationship
+
+interface Renderer {
+  render();
+}
+
+class ReactDOM implments Renderer {
+  // code
+  render() {}
+}
+
+class ReactNative implements Renderer {
+  // code
+  render() {}
+}
+
+```
+A and B can be consumer
+<ProductContex.Provider value={...}>
+  <A/>
+  <B />
+</ProductContext.Provider>
+
+D and E and F can be consumer
+<ProductContext.Provider value={...}>
+  <D/>
+  <E />
+  <F />
+</ProductContext.Provider>
