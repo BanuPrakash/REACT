@@ -711,3 +711,50 @@ export default class AgeChild extends Component {
 Functional components --> No Life Cycle Methods
 
 Memoize is a pattern -> cache result of expensive function call
+
+====
+
+componentWillUnMount() will be called before the component is destroyed.
+* use this to release any subscription 
+* do dispay Dialog on destroy --> Do you want to really Delete?
+* flush all state changes to server
+
+================================
+
+React 16+ recommends using only functional components instead of class components
+99% of components will be functional components
+
+class components are heavy
+
+Class components can have state, life cycle methods and behaviour.
+
+React Hooks was introduced in React 16.8 version which can be used for what class components provides.
+
+1) useState
+2) useEffect
+3) useReducer
+4) useContext
+5) useCallback
+6) useMemo
+7) useParams
+
+useState() is a hook to introduce state variables in functional components
+
+class StateCompExample extends Component {
+  state = {
+    name : "Roger",
+    age : 18
+  }
+
+  setName(n) {
+    this.setState( {
+      name: n
+    })
+  }
+
+  setAge(a) {
+    this.setState({
+      age: a
+    })
+  }
+}

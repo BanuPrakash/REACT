@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Parent from './components/Parent';
+
+import StateCompExample from './hooks/StateCompExample';
+import EffectExample from './hooks/EffectExample';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Parent />);
+root.render(<EffectExample />);
 
