@@ -740,6 +740,7 @@ React Hooks was introduced in React 16.8 version which can be used for what clas
 
 useState() is a hook to introduce state variables in functional components
 
+```
 class StateCompExample extends Component {
   state = {
     name : "Roger",
@@ -758,3 +759,86 @@ class StateCompExample extends Component {
     })
   }
 }
+```
+===================
+
+useReducer() is a hook which needs to used instead of useState() only if we need 
+a) mutation depends on previous state
+b) conditionally mutate the state
+
+```
+Example Shopping Cart:
+state data:
+{
+  "items": [
+    {id: 112, name: 'A', qty: 2, amount: 43434},
+    {id: 522, name: 'X', qty: 1, amount: 6223}
+  ],
+  total: 98882.22
+}
+
+1) Add to Cart Action
+{id: 51, name: 'G', amount: 124}
+
+get previous state and add new item to the cart
+{
+  "items": [
+    {id: 112, name: 'A', qty: 2, amount: 43434},
+    {id: 522, name: 'X', qty: 1, amount: 6223},
+    {id: 51, name: 'G', amount: 124} <---
+  ],
+  total: 100041.22
+}
+
+2) Increment qty of X
+get previous state
+{
+  "items": [
+    {id: 112, name: 'A', qty: 2, amount: 43434},
+    {id: 522, name: 'X', qty: 2, amount: 12823}, <----
+    {id: 51, name: 'G', amount: 124}
+  ],
+  total: 160041.22
+}
+
+3) clear cart
+{
+  items:[],
+  total: 0.0
+}
+
+SOLID Design Principle
+
+S --> Single Resposibility
+
+
+Reducer function 
+(state, action) => new state
+
+action is an object of syntax:
+
+{
+  type:'ADD_TO_CART',
+  payload:{id: 51, name: 'G', amount: 124}
+}
+
+{
+  type:'INCREMENT',
+  payload: 2
+}
+
+{
+  type: 'CLEAR_CART'
+}
+
+```
+
+Add new elements into array:
+```
+let data = [55,2,1];
+
+let ndata = [...data, 88] // make a clone of data and push 88
+
+ndata;
+(4) [55, 2, 1, 88]
+```
