@@ -842,3 +842,57 @@ let ndata = [...data, 88] // make a clone of data and push 88
 ndata;
 (4) [55, 2, 1, 88]
 ```
+
+introduced in React 16
+Context: Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+=======================
+
+Application using:
+1) typescript instead of JavaScript
+statically typed
+2) Context
+3) React Hooks
+4) react-router-dom
+--> 
+for different URLs different Components are rendered
+http://amazon.com/mobiles
+http://amazon.com/tvs
+http://amazon.com/cart
+
+--> also lazy loading of components
+
+5) Bootstrap --> CSS Framework
+6) Fontawesome --> Icons library
+7) Make API calls to Server using Axios library
+
+
+Next Part:
+convert above application by replacing Context with Redux [3rd party state management library]
+
+
+npx create-react-app productsapp --template typescript
+
+vite instead of create-react-app
+
+==================
+
+1) NavbarComp
+2) ProductList
+3) ProductCard
+4) Details
+5) CartList
+6) CartComp
+7) ProductForm
+8) Default
+
+====
+
+
+
+productsapp> npm i bootstrap react-bootstrap react-router-dom axios @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+index.tsx
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+
+Resume @ 4:05
