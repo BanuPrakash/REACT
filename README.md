@@ -1102,3 +1102,7 @@ checkout()
 
 4) npm start
 window.sessionStorage.setItem("user", "banu@gmail.com"); in windows terminal
+
+============
+
+Resume @ 2:00
