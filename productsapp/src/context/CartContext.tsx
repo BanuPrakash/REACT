@@ -29,6 +29,8 @@ const initialState = {
     total: 0,
     quantity: 0
 }
+
+
 export default function CartContextProvider(props:Props) {
     let [state, dispatch] = useReducer(CartReducer, initialState);
 

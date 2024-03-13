@@ -1062,3 +1062,14 @@ Bootstrap uses 12 grid system
 <Link to={"/details/" + id }>
 <Link to={`/details/${id}`}>
 
+
+Files:
+1) model/Cart.ts
+2) reducers/CartReducer.ts
+3) context/CartContext.tsx
+4) index.tsx
+5) NavbarComp.tsx
+6) ProductCard.tsx
+7) CartComp.tsx
+8) CartList.tsx
+
