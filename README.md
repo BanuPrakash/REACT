@@ -1217,3 +1217,32 @@ redux_example> npm i redux react-redux
 
 ```
 
+JavaScript in TypeScript application:
+```
+most of the modules are in JS including react
+
+npm i lodash // JS library
+
+Approach 1:[rarely we do this]
+typings.d.ts
+
+export default 'lodash' {
+  random(low:number, high:number) : number
+}
+
+a.ts
+import {random} from 'lodash';
+
+console.log(random(1, 100));
+
+Approach 2:
+// Definitely Typed
+
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+npm i react
+npm i @types/react
+npm i @types/lodash
+```
+=========================
+
