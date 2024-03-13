@@ -24,7 +24,7 @@ export default function ProductContextProvider(props:Props) {
     }, []);
 
     return <div>
-        <ProductContext.Provider value={{products}}>
+        <ProductContext.Provider value={{products:products}}>
             {props.children}
         </ProductContext.Provider>
     </div>

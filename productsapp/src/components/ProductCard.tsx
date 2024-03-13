@@ -1,7 +1,33 @@
 import React from 'react'
 
-export default function ProductCard() {
+import Card from 'react-bootstrap/Card';
+import Product from '../model/Product';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+type Props = {
+  product: Product
+}
+export default function ProductCard(props: Props) {
+  let { id, title, image, description, price } = props.product;
   return (
-    <div>ProductCard</div>
+    <div className='col-md-4 my-2'>
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={image} />
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>
+            {description}
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          ${price}
+          &nbsp;
+          <FontAwesomeIcon icon={faHeart} color='red' />
+          &nbsp;
+          <FontAwesomeIcon icon={faShoppingCart} color='blue' />
+        </Card.Footer>
+      </Card>
+    </div>
   )
 }

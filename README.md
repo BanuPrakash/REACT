@@ -733,7 +733,7 @@ React Hooks was introduced in React 16.8 version which can be used for what clas
 1) useState
 2) useEffect
 3) useReducer
-4) useContext
+4) useContext [Context Consumer]
 5) useCallback
 6) useMemo
 7) useParams
@@ -955,3 +955,106 @@ D and E and F can be consumer
   <E />
   <F />
 </ProductContext.Provider>
+
+===========
+
+Day 3
+
+React Hooks: can be used only in functional component
+1) useState() have state variables in functional component
+2) useEffect() to simulate life cycle methods
+
+```
+  // componentDidMount
+  useEffect(() => {
+
+  },[]); // empty dependency
+
+  // componentDidUpdate
+  useEffect(() => {
+
+  }); // no dependency --> code executes if any state/props change happens
+
+  // componentDidUpdate
+  useEffect(() => {
+
+  }, [name, age]); // trigger this whenever name or age changes
+
+// componentDidUpdate
+  useEffect(() => {
+
+  }, [price]); // trigger this when price changes
+
+
+
+3) useReducer()
+  whenever state change depends on previous state and conditionally mutate the state
+
+  3.1)
+  function CountReducer(state, action) {
+    switch(action.type) {
+      case 'INCREMENT':
+        return {
+          count: state.count + action.payload
+        }
+      case 'DECREMENT':
+        return {
+          count: state.count -1
+        }
+      case 'RESET':
+        return {
+          count : 0
+        }
+      default : return state;
+    }
+  }
+  let [state, dispatch] = useReducer(CountReducer, {count: 0})
+  dispatch({type:'INCREMENT', payload: 10});
+  //{count: 10}
+  dispatch({type:'DECREMENT'});
+  //{count: 9}
+  ```
+
+  Context: helps prevent props-drill
+  Provider places data in context
+  Consumer gets the data from Context
+
+  let CartContext = createContext();
+  let PersonContext = createContext(); // create a context
+
+```
+ function SomeClass(props) {
+  return(  
+    <PersonContext.Provider value={{"user": "banu@lucidatechnologies.com", "avatar": "banu.png"}}>
+     {props.children}
+  </PersonContext.Provider>
+  )
+ }
+
+ <SomeClass className="row">
+    <App />
+ </SomeClass>
+
+ ``
+ chrome://extensions
+ react and redux dev tools
+
+ Class Component --> Context Consumer
+```
+ export default class ProductList extends Component {
+  render() {
+    return <ProductContext.Consumer>
+      {
+        value => value.products.map(....);
+      }
+    </ProductContext.Consumer>
+  }
+ }
+
+```
+
+<div className='container'> is same as <Container> ==> provides auto-margin 
+
+Bootstrap uses 12 grid system
+
+<img src="..." className="col-sm-12 col-md-6 col-lg-4">
