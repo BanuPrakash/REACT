@@ -1075,8 +1075,6 @@ Files:
 
 =====
 
-Place Order
-
 Fake RESTAPi:
 Run in seperate terminal:
 npx json-server --watch data.json --port 1234
@@ -1085,3 +1083,22 @@ in other terminal:
 npm start
 
 Changes: ProductContext.tsx to access data from http://localhost:1234/products
+
+==========
+
+Place Order
+1) User login
+in browser:
+window.sessionStorage.setItem("user", "banu@gmail.com");
+
+Check:
+1) data.json
+npx json-server --watch data.json --port 1234
+
+2) ProductContext.tsx
+  gets from our Fake API server
+3) CartContext.tsx
+checkout()
+
+4) npm start
+window.sessionStorage.setItem("user", "banu@gmail.com"); in windows terminal
