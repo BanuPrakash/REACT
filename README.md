@@ -1058,3 +1058,6 @@ React Hooks: can be used only in functional component
 Bootstrap uses 12 grid system
 
 <img src="..." className="col-sm-12 col-md-6 col-lg-4">
+
+<Link to={"/details/" + id }>
+<Link to={`/details/${id}`}>
