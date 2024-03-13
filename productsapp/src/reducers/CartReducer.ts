@@ -1,6 +1,7 @@
 import Cart from "../model/Cart"
 import Product from "../model/Product"
 
+// Union type
 type Action = {
     type: 'ADD_TO_CART',
     payload: Product
@@ -41,7 +42,6 @@ export default function CartReducer(state: CartState, action: Action) {
                     item.amount = item.qty * item.price;
                 }
             });
-
             return {
                 items,
                 total: state.items.map(item => item.amount).reduce((v1, v2) => v1 + v2, 0.0),

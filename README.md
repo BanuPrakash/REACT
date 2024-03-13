@@ -1061,3 +1061,4 @@ Bootstrap uses 12 grid system
 
 <Link to={"/details/" + id }>
 <Link to={`/details/${id}`}>
+
