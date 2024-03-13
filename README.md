@@ -1246,3 +1246,5 @@ npm i @types/lodash
 ```
 =========================
 
+ProductApp [Context ==> Redux]
+
