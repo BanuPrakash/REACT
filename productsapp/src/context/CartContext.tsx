@@ -2,6 +2,7 @@ import { ReactNode, createContext, useReducer } from "react";
 import Cart from "../model/Cart";
 import CartReducer from "../reducers/CartReducer";
 import Product from "../model/Product";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     children: ReactNode
@@ -33,7 +34,7 @@ const initialState = {
 
 export default function CartContextProvider(props:Props) {
     let [state, dispatch] = useReducer(CartReducer, initialState);
-
+    let navigate = useNavigate();
     function addToCart(product:Product) {
        dispatch({type:'ADD_TO_CART', payload: {...product}});
     }
@@ -45,6 +46,7 @@ export default function CartContextProvider(props:Props) {
     function checkout() {
         // write to server
         dispatch({type:'CLEAR_CART'});
+        navigate('/');
     }
     return <div>
         <CartContext.Provider value={{

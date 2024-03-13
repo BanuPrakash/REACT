@@ -12,6 +12,7 @@ export default function Details() {
       setProduct(response.data);
     })
   }, []);
+  
   return (
     <div>
       <h1>Product Details</h1>

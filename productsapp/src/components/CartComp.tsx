@@ -4,7 +4,7 @@ import { Button, Container } from 'react-bootstrap';
 import CartList from './CartList';
 
 export default function CartComp() {
-  let { items, total } = useContext(CartContext);
+  let { items, total, checkout } = useContext(CartContext);
   return (
     <Container>
       {
@@ -17,7 +17,7 @@ export default function CartComp() {
       <div className='row'>
         <div className='col-md-10'>&nbsp;</div>
         <div className='col-md-2'>
-          <Button>Checkout</Button>
+          <Button onClick={() => checkout()}>Checkout</Button>
         </div>
       </div>
     </Container>

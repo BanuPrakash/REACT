@@ -14,7 +14,7 @@ const Details = lazy(() => import('./components/Details'));
 
 function App() {
   return (
-    <BrowserRouter>
+     <div>
       <NavbarComp />
       <Routes>
         <Route path="/products" element={<ProductList />} />
@@ -37,7 +37,7 @@ function App() {
         <Route path="/" element={<ProductList />} />
         <Route path="*" element={<Default />} />
       </Routes>
-    </BrowserRouter>
+   </div>
   );
 }
 
