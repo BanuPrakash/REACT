@@ -1105,4 +1105,115 @@ window.sessionStorage.setItem("user", "banu@gmail.com"); in windows terminal
 
 ============
 
-Resume @ 2:00
+function getProducts() {
+  ...
+}
+// without using Provider
+let ProductContext = createContext({products: getProducts()});
+
+=========
+
+Handling Forms in React:
+1) Controlled Component
+where react will hold the state of form elements
+```
+  export default function ProductForm() {
+    let [name, setName] = useState();
+    let [price, setPrice] = useState();
+    function doSubmit() {
+      ///
+    }
+    return <div>
+      Name : <input type="text" onChange={(evt) => setName(evt.target.value)}/> <br />
+      Price :<input type="number" onChange={(evt) => setPrice(+evt.target.value)}/> <br />
+      <button type="button" onClick={() => doSubmit()}>Add </button>
+    </div>
+  }
+
+```
+2) Uncontrolled Component
+form elements themselves hold the state
+```
+export default function ProductForm() {
+    let nameRef = useRef();
+    let priceRef = useRef();
+    function doSubmit() {
+      let product = {
+        title: nameRef.current.value,
+        price: priceRef.current.value
+      }
+
+      axios.post("http://localhost:1234/products", product).then(response => {
+        console.log("Product added!!!");
+        nameRef.current.value = "";
+        priceRef.current.value = 0;
+      })
+    }
+    return <div>
+      Name : <input type="text" ref={nameRef}/> <br />
+      Price :<input type="number" ref={priceRef}/> <br />
+      <button type="button" onClick={() => doSubmit()}>Add </button>
+    </div>
+  }
+```
+
+Predicatable State Management using REDUX
+
+1) React Context was not meant for State Management
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+Anti-pattern: State Managment
+
+Can be used as State Managment for Smaller application
+
+2) Redux
+3) Mobx
+4) Recoil
+
+Why Redux?
+* State managment module can be developed independently and tested by team. Team need not be aware of view library like React, Angular, Backbone
+
+* State managment module can be integrated into React / Angular / Server Side code like ExpressJS
+* Time Travel debugging
+* Apt choice for MicroFrontEnd Framework
+
+Redux has a Single Store [ central source of truth], Store is place where state resides.
+
+
+react-redux
+```
+connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
+
+function mapStateToProps(state) {
+  return {
+    cartItems: state => state.cart.items,
+    grandTotal: state => state.cart.total
+  }
+}
+
+props.cartItems.map(...)
+
+props.grandTotal
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addToCart: (product) => dispatch({type:"ADD_TO_CART", payload: product}),
+    increment: (id) => dispatch({type: 'INCREMENT', payload: id}) 
+  }
+}
+
+props.addToCart(...)
+
+props.increment(3);
+
+=========
+
+npx create-react-app redux_example
+
+redux_example> npm i redux react-redux
+
+```
+

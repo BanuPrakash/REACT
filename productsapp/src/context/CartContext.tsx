@@ -47,7 +47,7 @@ export default function CartContextProvider(props: Props) {
 
     function checkout() {
         let order = {
-            customer: window.sessionStorage.getItem("user"),
+            customer: window.sessionStorage.getItem("user"), /* Login */
             orderDate: new Date(),
             items: state.items,
             total: state.total
