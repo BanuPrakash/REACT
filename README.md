@@ -1434,3 +1434,39 @@ export const customerApi = createApi({
   export const {useCustomersQuery, useCustomerQuery, useAddCustomerMutation} = customerApi;
 
   ```
+ Div polluting
+ ```
+  function Component() {
+    return <div>
+        <h1> ,,, </h1>
+        <p> ...
+    </div>
+  }
+
+  function X() {
+    return <div>
+
+    </div>
+  }
+
+  React Fragment is a solution for div pollution
+   function Component() {
+    return <>
+        <h1> ,,, </h1>
+        <p> ...
+    </>
+  }
+
+  function X() {
+    return <React.Fragment>
+
+    </React.Fragment>
+  }
+  ```
+
+  <React.StrictMode>
+  </React.StrictMode>
+
+  =============================
+
+  

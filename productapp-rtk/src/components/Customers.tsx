@@ -25,7 +25,9 @@ export default function Customers() {
 // props ==> {"id": 1}
 
 const CustomerDetails = ({ id }: { id: string }) => {
-    const { data } = useCustomerQuery(id);
+    const { data } = useCustomerQuery(id, {
+        pollingInterval: 30000
+    });
     return (
         <pre>{JSON.stringify(data)}</pre>
     )
