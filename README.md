@@ -1317,4 +1317,21 @@ dispactch(increment(10));
 dispatch(decrement());
 
 ```
+
+useSelector() is approximately equivalent to the mapStateToProps argument to connect conceptually.
+
+let {total} = useSelector(state => state.cart.total);
+
+
+useDispatch() is equivalent to the mapDispatchToProps argument to connect conceptually.
+
+let dispatch = useDispatch();
+dispatch({type:'', payload: ..});
 =======
+
+function doTask() {
+  return 100;
+}
+
+type MyFuncType = ReturnType<typeof doTask>;
+
