@@ -4,7 +4,7 @@ import Product from "../../model/Product";
 export const fetchProducts = createAsyncThunk<Product[]>(
     "products/fetch",
     async () => {
-        const response = await fetch("http://localhost:1234/poducts");
+        const response = await fetch("http://localhost:1234/products");
         const data: Product[] = await response.json();
         return data;
     }

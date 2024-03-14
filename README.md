@@ -1378,4 +1378,17 @@ pending --> rejected
 productApi.ts
 ProductSlice.ts
 store.ts
+productList.tsx
+
+======================
+
+RTK advantages over Context for Async:
+1) intermediate state ==> loading, fullfilled / rejected
+2) RTK Query ==> advanced data fetching and caching tool, pre-fetching, polling
+
+======
+
+Resume @ 2:00
+
+
 
