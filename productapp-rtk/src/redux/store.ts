@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { CartState, cartReducer } from "./features/CartSlice";
 import { counterReducer } from "./features/CounterSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { productReducer } from "./features/ProductSlice";
 
 const store = configureStore({
     reducer: {
         cart: cartReducer,
-        counter: counterReducer
+        counter: counterReducer,
+        products: productReducer
     },
     devTools: true
 });

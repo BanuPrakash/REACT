@@ -1344,6 +1344,38 @@ NavbarComp.tsx
 CartComp.tsx
 CartList.tsx
 
+=========================
+
+delete Context folder
+remove reference in ProductList.tsx
+remove refernence in index.tsx
+
+=====
+
+Use Asynchronous logic in Redux
+Redux by default is synchronous action
+to use Async logic in Redux we need middlewares like thunk / Saga / ObservableRx...
+
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
 
 
+dispatch(function); // thunk middleware intercepts --> make API call, based on response middleware can in turn dispatch further actions
+
+Example:
+dispatch(getProducts()); // Spinner Component
+getProducts() makes API call
+200 ==> dispatch({type:"FETCH_PRODUCTS", payload: response.data}); // reducer --> list products
+404 ==> dispatch({type:"NOT_FOUND", payload: response.error}); // reducer --> ErrorComponent
+
+dispatch(action); // middleware just delegates to reducers
+
+https://github.com/reduxjs/redux-thunk/blob/master/src/index.ts
+
+pending --> fullfilled
+pending --> rejected
+=======================
+
+productApi.ts
+ProductSlice.ts
+store.ts
 
