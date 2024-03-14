@@ -5,6 +5,8 @@ import Product from '../model/Product';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../redux/store';
+import { addToCart } from '../redux/features/CartSlice';
 
 
 type Props = {
@@ -12,7 +14,7 @@ type Props = {
 }
 export default function ProductCard(props: Props) {
   let { id, title, image, description, price } = props.product;
-
+  const dispatch = useAppDispatch();
   return (
     <div className='col-md-4 my-2'>
       <Card style={{ width: '80%' }}>
@@ -30,7 +32,9 @@ export default function ProductCard(props: Props) {
           &nbsp;
           <FontAwesomeIcon icon={faHeart} color='red' />
           &nbsp;
-          <FontAwesomeIcon icon={faShoppingCart} color='blue' />
+          <FontAwesomeIcon icon={faShoppingCart} 
+          onClick={() => dispatch(addToCart(props.product))}
+          color='blue' />
         </Card.Footer>
       </Card>
     </div>
