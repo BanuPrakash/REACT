@@ -1246,5 +1246,47 @@ npm i @types/lodash
 ```
 =========================
 
-ProductApp [Context ==> Redux]
+Day 4
 
+Recap:
+Context, Reducer, useReducer, Controlled Components, Uncontrolled Components
+
+Redux -> Predicatable State Managment [library]
+* Store: Single Store where state is managed
+* Reducer: (state, action) => new State
+* Root Reducer --> to combine all reducers [store --> root_reducer --> all reducers]
+* compose() is used to add middleware to redux [ Redux DevTools, thunk, saga, ...]
+
+react-redux [ library]: to integrate react with redux
+* connect(mapStateToProps, mapDispatchToProps)(App)
+* mapStateToProps --> provides props to react component which refers to redux store state
+* mapDispatchToProps --> provides props [func] using which we can dispatch action to redux store
+
+* Time Travel Debugging
+
+========
+
+RTK: Redux Toolkit
+Why?
+1) Simple: It simplifies creating actions, reducers, ...
+2) Opinionated: Provides good defaults. Example by default Redux Development tools are configured
+3) Powerful: provides immutable update logic
+https://immerjs.github.io/immer/
+https://immutable-js.com/
+4) Effective: do more work with less code.
+5) Easy integration of Async actions
+
+========================================
+
+Upgragde productapp to use RTK from Context
+
+* Change CartContext to use RTK
+1) delete reducers folder
+2) delete CartContext.tsx
+3) remove CartContextProvider reference in index.tsx
+4) remove its reference in ProductCard.tsx
+5) remove references in CartComp.tsx
+
+npm i @reduxjs/toolkit react-redux
+instead of
+npm i redux react-redux [old]
