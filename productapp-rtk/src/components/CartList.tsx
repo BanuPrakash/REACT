@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import Cart from '../model/Cart'
 import { Button } from 'react-bootstrap';
-
+import { increment } from '../redux/features/CartSlice';
+import { useAppDispatch } from '../redux/store';
 
 type Props = {
   product: Cart
 }
 export default function CartList(props: Props) {
-
+  let dispatch = useAppDispatch();
   let { id, title, image, price, qty, amount } = props.product;
   return (
     <div className='row'>
@@ -22,7 +23,7 @@ export default function CartList(props: Props) {
         &nbsp;
         {qty}
         &nbsp;
-        <Button>+</Button>
+        <Button onClick={() => dispatch(increment(id))}>+</Button>
       </div>
 
       <div className='col-md-2'>

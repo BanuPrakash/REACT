@@ -1335,3 +1335,15 @@ function doTask() {
 
 type MyFuncType = ReturnType<typeof doTask>;
 
+===
+
+redux folder
+index.tsx
+ProductCard.tsx
+NavbarComp.tsx
+CartComp.tsx
+CartList.tsx
+
+
+
+
