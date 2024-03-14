@@ -5,9 +5,11 @@ import { Customer } from '../../model/Customer'
 export const customerApi = createApi({
     reducerPath: 'customerApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:1234/' }),
+    tagTypes: ['Customers'],
     endpoints: (builder) => ({
       customers: builder.query<Customer[], void>({
-        query: () => 'customers'
+        query: () => 'customers',
+        providesTags: ['Customers']
       }),
       customer : builder.query<Customer, string>({
         query: (id) => `customers/${id}`
@@ -17,7 +19,8 @@ export const customerApi = createApi({
             url: '/customers',
             method: 'POST',
             body: customer
-        })
+        }),
+        invalidatesTags: ['Customers']
       })
     }),
   })

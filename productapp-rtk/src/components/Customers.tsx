@@ -33,15 +33,15 @@ const CustomerDetails = ({ id }: { id: string }) => {
 
 const AddCustomer = () => {
     const [addCustomer] = useAddCustomerMutation();
-    const { refetch } = useCustomersQuery();
+    // const { refetch } = useCustomersQuery();
     async function addHandler() {
         let customer = {
-            "id": "4",
-            "firstName": "Jack",
-            "lastName": "Sparrow"
+            "id": "5",
+            "firstName": "Peter",
+            "lastName": "Pan"
         }
         await addCustomer(customer);
-        refetch();
+        // refetch();
     }
     return <>
         <button onClick={addHandler}>Add Customer</button>
