@@ -1286,7 +1286,35 @@ Upgragde productapp to use RTK from Context
 3) remove CartContextProvider reference in index.tsx
 4) remove its reference in ProductCard.tsx
 5) remove references in CartComp.tsx
+6) remove reference in NavbarComp [Badge, quantity]
+7) remove rerences in CartList.tsx [ increment]
 
 npm i @reduxjs/toolkit react-redux
 instead of
 npm i redux react-redux [old]
+
+npx json-server --watch data.json --port 1234
+npm start
+
+createSlice
+
+```
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: 0,
+  reducers: {
+    increment: (state, action: PayloadAction<number>) => state + action.payload,
+    decrement: (state) => state - 1,
+    reset: () => 0
+  },
+})
+
+
+No need for
+dispatch({type:'INCREMENT', payload: 10})
+instead
+dispactch(increment(10));
+dispatch(decrement());
+
+```
+=======
