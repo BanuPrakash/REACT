@@ -6,7 +6,7 @@ import './App.css';
 import NavbarComp from './components/NavbarComp'; //eAGEr loading
 import ProductList from './components/ProductList'; // EAGER loading
 import Default from './components/Default';
-
+import Customers from './components/Customers';
 // lazy loading should be after regular imports
 const CartComp = lazy(() => import('./components/CartComp'));
 const ProductForm = lazy(() => import('./components/ProductForm'));
@@ -34,6 +34,7 @@ function App() {
             <Details />
           </Suspense>
         } />
+        <Route path='/customers' element={<Customers />} />
         <Route path="/" element={<ProductList />} />
         <Route path="*" element={<Default />} />
       </Routes>

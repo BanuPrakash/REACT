@@ -16,6 +16,7 @@ export default function NavbarComp() {
             <Navbar.Brand href="#home">CISCO</Navbar.Brand>
             <Nav className="me-auto">
                 <Nav.Link as={Link} to="/products">Products</Nav.Link>
+                <Nav.Link as={Link} to="/customers">Customers</Nav.Link>
                 <Nav.Link as={Link} to="/cart">
                     <FontAwesomeIcon icon={faShoppingCart} color='white' />
                     <Badge>{quantity}</Badge>

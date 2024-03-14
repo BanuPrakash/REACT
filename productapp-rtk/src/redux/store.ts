@@ -3,14 +3,18 @@ import { CartState, cartReducer } from "./features/CartSlice";
 import { counterReducer } from "./features/CounterSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { productReducer } from "./features/ProductSlice";
+import { customerApi } from "./api/customerApi";
 
 const store = configureStore({
     reducer: {
         cart: cartReducer,
         counter: counterReducer,
-        products: productReducer
+        products: productReducer,
+        [customerApi.reducerPath]: customerApi.reducer
     },
-    devTools: true
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(customerApi.middleware),
+  
 });
 
 // data type of store state

@@ -1387,8 +1387,15 @@ RTK advantages over Context for Async:
 2) RTK Query ==> advanced data fetching and caching tool, pre-fetching, polling
 
 ======
+Context will be apt to store username and avatar as soon as login
+Context will be good for custom theme settings
 
-Resume @ 2:00
+createSlice() of RTK gives reducer functions and action
+createAsyncThunk() for async actions using Thunk library, actions to be handled in extraReducers
+
+RTK Query --> Advance Data fetching and Caching
+use createApi() instead of createAsyncThunk()
 
 
+Fragment. ..
 

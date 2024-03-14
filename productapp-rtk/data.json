@@ -41,7 +41,28 @@
       "total": 109.95
     }
   ],
-  "customers": [],
+  "customers": [
+    {
+      "id": "1",
+      "firstName": "Peter",
+      "lastName": "Brad"
+    },
+    {
+      "id": "2",
+      "firstName": "James",
+      "lastName": "Bond"
+    },
+    {
+      "id": "3",
+      "firstName": "Raj",
+      "lastName": "Kumar"
+    },
+    {
+      "id": "4",
+      "firstName": "Jack",
+      "lastName": "Sparrow"
+    }
+  ],
   "products": [
     {
       "id": "1",
