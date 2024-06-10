@@ -115,12 +115,13 @@ return new Promise(...);
 @babel/preset-react: JSX to JS object
 
 JSX: 
+```
 function Product() {
 return <div>
     <h1>Hello </h1>
 </div>;
 }
-
+```
 html-webpack-plugin:  simplifies creation of HTML files to serve your webpack bundles. 
 This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
 index.html
@@ -138,6 +139,31 @@ yarn prod
 bundle.176926cf.js 503 bytes 
 
 yarn start
-
+npm start
 =======
+
+npm i lodash
+
+====================
+
+React Demystify:
+
+ReferenceError: React is not defined
+when JSX is found --> @babel/preset-react or  @babel/preset-react-app
+this preset looks for React Object
+
+```
+let React = {
+
+};
+```
+Error: Cannot read properties of undefined (reading 'createElement')
+
+====
+
+Convert JS Object generated from React.createElement() into UI component: Rendering
+
+https://github.com/chentsulin/awesome-react-renderer
+
+
 

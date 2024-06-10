@@ -1,9 +1,12 @@
 const webpack = require('webpack'); // CommonJS module system
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path'); // built-in module
+const { split, chunk } = require('lodash');
 
 module.exports = function (__env, argv) {
     return {
+        target: ["web", "es5"],
+        devtool:"eval-cheap-module-source-map",
         entry: "./src/index.js",
         output: {
             path: path.resolve(__dirname, "dist"),
@@ -33,6 +36,18 @@ module.exports = function (__env, argv) {
         })],
         devServer: {
             port: 3000
+        },
+        optimization: {
+            splitChunks: {
+                cacheGroups:
+                {
+                    vendor: {
+                        test : /node_modules/,
+                        name: "vendor",
+                        chunks: "all"
+                    }
+                }
+            }
         }
     }
 }
