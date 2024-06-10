@@ -217,3 +217,8 @@ sampleapp/node_modules/react-dom/cjs/react-dom.development.js
 
 26730: commitRootImpl()
 
+======
+Fixing issues:
+1) Lazy loading of Component
+2) use memoize
+.....
