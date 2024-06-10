@@ -165,5 +165,55 @@ Convert JS Object generated from React.createElement() into UI component: Render
 
 https://github.com/chentsulin/awesome-react-renderer
 
+====================================================
 
+React rendering phases:
+1) render()
+2) commit()
+
+React 17: used Stack based rendering ==> synchronous
+React 18: uses Fiber architecture --> Async concurrent rendering
+
+https://claudiopro.github.io/react-fiber-vs-stack-demo/
+
+npx create-react-app sampleapp
+
+create-react-app: uses webpack to create scaffolding code
+
+react-scripts is a wrapper for webpack commands
+
+"start": "react-scripts start", is similar to
+"start": "webpack serve --mode development"
+
+Hook: 
+useState() is a hook to introduce state variable in functional component
+```
+const [count, setCount] = useState(0);
+
+Class Component:
+export default class Counter {
+    state = {
+        count : 0
+    }
+
+    setCount(no) {
+        this.setState({
+            count: no
+        })
+    }
+}
+```
+
+functional component should return JSX
+class component render() returns JSX
+
+sampleapp/node_modules/react-dom/cjs/react-dom.development.js
+
+26586: function performUnitOfWork(unitOfWork) {
+
+21555: function beginWork(current, workInProgress, renderLanes) {
+
+22103:  function completeWork(current, workInProgress, renderLanes) {
+
+26730: commitRootImpl()
 
