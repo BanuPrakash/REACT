@@ -274,6 +274,7 @@ React Hooks:
 2) useMemo
 3) useEffect
 
+```
 // componentDidMount: called only once when intially after component is rendered
 useEffect(() => {
     // code
@@ -290,10 +291,11 @@ useEffect(() => {
     // code
 });
 
+
 <React.StrictMode>
 will load and unload the component once before actually loading once again
 StrictMode: to check any abnormal activities
-
+```
 ===
 React built-in HOC : memo() for memoization
 
@@ -302,6 +304,7 @@ useMemo() is a hook to memoize the result of function call
 
 parent passes 19; ==> no
 
+```
 fibanocci(no) {
     // expensive result
 }
@@ -317,3 +320,7 @@ function Parent(input) {
     </div>
 }
 memo() is a HOC
+```
+==========
+
+
