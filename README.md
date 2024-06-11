@@ -321,6 +321,205 @@ function Parent(input) {
 }
 memo() is a HOC
 ```
+===============
+JavaScript is loosely and dynamically typed language
+var x  = "test"; // string
+x = 24; // valid --> number
+
+TypeScript
+* provide optional type system for JavaScript
+* enhance code quality and understandiblity
+* catch errors at compile time instead of fail at runtime
+* sort of documentation
+
+Install typescript:
+npm i typescript -g
+tsc file.ts ==> file.js
+
+Types
+1) basic types: string, number, boolean
+
+let name:string = "Roger";
+name++; // tsc picks this error
+
+2) type [ to declare the shape of object]
+
+type Product = {
+    id: number;
+    name: string;
+    price?: number
+}
+
+function addProduct(product:Product) : void {
+    //
+}
+
+addProduct({id: 2, name: "iPhone", price : 34566.11});
+addProduct({id: 2, price : 34566.11}); // error: name is missing by tsc
+addProduct({id: 2, name: "iPhone"}); // valid because ? --> optional
+
+3) 
+ 3.1) interface [ to decalre the shape of object similar to type]
+
+interface Product {
+    id: number;
+    name: string;
+    price?: number
+}
+
+// Mobile is a specialized Product
+interface Mobile extends Product {
+    connectivity: string;
+    camera: string;
+}
+
+interface Tv extends Product {
+    screenType: string
+}
+
+3.2) interface for realization relationship [ contract]
+interface Renderer {
+    render(): JSXElement;
+}
+
+class ReactDOM implements Renderer {
+        // state and behaviour
+        render(): JSXElement {
+            // code
+        }
+}
+
+class ReactTv implements Renderer {
+        // state and behaviour
+        render(): JSXElement {
+            // code
+        }
+}
+
+let renderer:Renderer = new ReactDOM();
+renderer.render();
+renderer = new ReactTv();
+renderer.render();
+
+4) class 
+class can have state and behaviour
+
+5) any 
+6) unknown [ forces to do typechecking before using it]
+
+function doTask(arg:any) {
+
+}
+invokeApiCall() is written in JS
+might return JSON data / 404 / exception message
+
+let result:any = invokeApiCall(); 
+
+tsc anyExample.ts 
+node ./anyExample.js
+
+=====
+
+7) Union type
+let code: string | number = 1234;
+code = "React";
+code = true; // error
+
+Type assertions: using "as"
+Type predicates: using "is"
+
+8) Generics
+
+HOF:
+a) functions which accept function as argmuent
+b) functions which return a function
+
+Task:
+create a generic function map() to transform the data
+a) each number should be doubled and returned back
+b) products[] passed as argument; return string[] containing only names
+
+typescript node project:
+1) typescript installed
+2) tsconfig.json
+
+npm init --y
+npm i typescript
+tsc --init ==> creates tsconfig
+
+How to use JavaScript libraries in TypeScript:
+Note: most of the libraries are in JS
+npm i underscore
+
+Could not find a declaration file for module 'underscore'. 
+
+looking for typedefinition for underscore
+
+Solution 1: typing definition file
+using typings.d.ts
+
+Solution 2: DefinitelyTyped
+https://github.com/DefinitelyTyped/DefinitelyTyped
+npm i @types/underscore
+
+=============================
+
+Decorators: metadata for class, method, fields, parameters; basically a HOF
+decorator pattern instead of specialization pattern
+
+@decorator
+Angular uses decorator pattern, react by default used specialization pattern
+
+React Component:
+class Product extends Component {
+    // state and behavior
+}
+
+Angular:
+@Component({
+    selector: 'app-product',
+    template: ` <div>
+        ...
+    </div>`
+})
+class Product {
+    // state and behaviour
+}
+
+@Component({
+    selector: 'app-product',
+    templateUrl: `./order.html`,
+    stylesUrl: ['./style.css']
+})
+class OrderComponent {
+    // state and behaviour
+}
+
 ==========
 
+1) function classDecorator(constructor: Function) {}
 
+@Component({
+})
+class OrderComponent {
+
+2) function propertyDecorator(target:any, propertyKey:string) {}
+3) function methodDecorator(target:any, methodName:string, descriptor?: PropertyDescriptor) {}
+class SampleComponent {
+    @NotBlank
+    name:string = "hello"
+
+    @memoize
+    fetchCustomers() {
+        // code
+    }
+}
+
+A PropertyDescriptor describes a property on an Object.
+
+Note:
+"experimentalDecorators": true,  ==> creates proxy HOF code in JS
+
+==========================
+
+Build application using Typescript [ used for entire days]
