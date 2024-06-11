@@ -1,4 +1,4 @@
-import {useMemo} from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 function computeTotal() {
     console.log("called : computeTotal");
@@ -12,12 +12,21 @@ function computeTotal() {
 
 export default function MyComponent({ count }) {
     let total = useMemo(() => computeTotal(), []);
+    let [value, setValue] = useState(0);
+    // componentDidMount lifecycle method
+    useEffect(() => {
+        window.addEventListener("load", () => console.log("MyComponent loaded!!!"));
+    }, [])
 
-    window.addEventListener("load", () => console.log("MyComponent loaded!!!"));
+    useEffect(() => {
+        let timerId = setInterval(() => setValue(val => val + 1), 1000);
+        return () => clearInterval(timerId); // called when unmount componentWillUnMount()
+    }, []);
 
     return <div>
         Count: {count} <br />
         Total : {total} <br />
+        Value : {value}
     </div>
 }
 

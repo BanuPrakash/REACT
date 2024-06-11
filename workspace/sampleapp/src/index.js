@@ -8,7 +8,11 @@ import App from './App';
 // createRoot uses fiber asynchronous rendering
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<Counter />);
-root.render(<App />);
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);
 
 // React 17 version
 //ReactDOM.render is no longer supported in React 18. Use createRoot instead.

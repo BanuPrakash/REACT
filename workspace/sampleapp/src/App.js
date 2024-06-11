@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css'; // css-loader and style-loader
 import { lazy, useState, Suspense } from 'react';
 // import MyComponent from './MyComponent';
-const MyComponent = lazy(() => import('./MyComponent'));
+const MyComponent = lazy(() => import('./MyComponent')); // don't include in bundle.js
 
 function App() {
   let [count, setCount] = useState(0);

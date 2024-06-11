@@ -222,3 +222,98 @@ Fixing issues:
 1) Lazy loading of Component
 2) use memoize
 .....
+
+Day 2
+
+Recap: webpack, babel-loader, @babel/core, @babel/preset-env, @babel/preset-react
+.babelrc
+babel.config.json
+babel.config.js
+
+npx create-react-app to create scaffolding code which internally uses webpack
+react-scripts --> wrapper for webpack commands
+
+to get core webpack config:
+yarn eject
+npm run eject
+
+React Hooks: introduced in react 16 version to introduce state varible and life cycle methods in functional components which was available in class component.
+
+// specialization pattern --> inheritance
+class MyComponent extends Component {
+
+}
+
+function MyComponent() {
+
+}
+
+useState() ==> to introduce a state variable
+
+let [count, setCount] = useState(100);
+
+let [name, setName] = useState("Roger");
+
+function setCount(data) {
+    updates the heap area;
+    forceRender();
+}
+
+count = count + 1; // state changes but doesn't re-render
+
+setCount(count => count + 1); // forces rendering
+
+==
+
+FCP Core web vital: First Contentful Paint
+
+Day 2:
+
+React Hooks:
+1) useState
+2) useMemo
+3) useEffect
+
+// componentDidMount: called only once when intially after component is rendered
+useEffect(() => {
+    // code
+}, []);
+
+
+// componentDidUpdate --> gets called whenever count [state or props] changes
+useEffect(() => {
+    // code
+}, [count]);
+
+// componentDidUpdate ==> gets called whenever any state / props change [ avoid ]
+useEffect(() => {
+    // code
+});
+
+<React.StrictMode>
+will load and unload the component once before actually loading once again
+StrictMode: to check any abnormal activities
+
+===
+React built-in HOC : memo() for memoization
+
+
+useMemo() is a hook to memoize the result of function call
+
+parent passes 19; ==> no
+
+fibanocci(no) {
+    // expensive result
+}
+
+let result = useMemo(() -> fibanocci(no), [no]);
+
+function Parent(input) {
+    const MyDashboard = useMemo( () => MyDashboard(input), [input]); // <div>....</div>
+    return <div>
+            <MyDashboard />
+            <Othercomponent1 />
+            <Othercomponent2 />
+    </div>
+}
+memo() is a HOC
