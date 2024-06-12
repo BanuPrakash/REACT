@@ -522,3 +522,27 @@ Note:
 
 ==========================
 
+Day 3:
+When do we need decorator factory?
+* Closure
+* if extra configuration has to be passed
+
+
+class Book {
+    price:number;
+
+    //getter
+    get amount() {
+        return this.price;
+    }
+
+    //setter
+    set amount(a:number) {
+        this.price = a;
+    }
+}
+
+let b = new Book();
+b.amount = 343434; // setter
+let amt = b.amount; // getter
+

@@ -1,3 +1,4 @@
+// methodDecorator
 export function profile(target:any, methodName:string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
     descriptor.value = function(...args: any[]) {

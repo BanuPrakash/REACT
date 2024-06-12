@@ -1,6 +1,8 @@
 import filter from "./lib";
 import {max} from 'underscore';
 import Compute from "./Compute";
+
+import Person from "./Person";
 let numbers:number[] = [5,2,3,52, 13, 8,9,1];
 
 console.log("Max: " , max(numbers));
@@ -36,3 +38,15 @@ console.timeEnd("first");
 console.time("second");
    console.log(compute.fibanocci(34));
 console.timeEnd("second");
+
+console.log("*********");
+
+let p:Person = new Person("Warren", 54);
+
+// @ts-ignore
+if(p["error"]) {
+   // @ts-ignore
+   console.log(p["error"])
+} else {
+   console.log(p.getDetails());
+}
