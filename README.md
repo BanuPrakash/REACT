@@ -522,4 +522,3 @@ Note:
 
 ==========================
 
-Build application using Typescript [ used for entire days]
