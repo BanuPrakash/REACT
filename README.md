@@ -527,7 +527,7 @@ When do we need decorator factory?
 * Closure
 * if extra configuration has to be passed
 
-
+```
 class Book {
     price:number;
 
@@ -545,4 +545,101 @@ class Book {
 let b = new Book();
 b.amount = 343434; // setter
 let amt = b.amount; // getter
+```
 
+Try building @Component class level decorator similar to one in Angular
+--> adds extra members to class
+
+=============
+Typescript utility types:
+
+1) Partial: constructs a type with all properties of Type set to optional.
+
+interface Person {
+    name: string;
+    age:number;
+    password:string;
+    email: string;
+}
+
+function addPerson(person:Person) {
+
+}
+function login(person:Partial<Person>) {
+
+}
+
+login({"email": "a@gmail.com" , "password": "secret123"});
+
+
+2) Omit
+
+3) ReadOnly
+
+const user: ReadOnly<Person> = {
+    name: "A",
+    age: 33,
+    password: "AAA",
+    email : "aaa"
+}
+
+user.password = "test"; // error
+
+4) Tuple
+
+5) Record
+like Dictionary [key-value] pair with fixed number of keys.
+
+```
+type Course = "React" | "JS" | "TS";
+
+interface CourseInfo {
+    professor:string;
+    duration:number;
+}
+
+const courses:Record<Course, CourseInfo> = {
+    "React" : {
+        professor : "Gavin",
+        duration: 48
+    },
+    "JS" : {
+        ...
+    }
+    ,
+    TS: {
+        ...
+    }
+}
+
+```
+
+6) infer and ReturnType
+infer keyword allows to deduce a type from another type within a conditional type
+
+```
+type MyType<T> = T extends (infer E)[] ? E: T;
+
+// t1 is  a "number"
+type t1 = MyType<number[]>;
+
+// t2 is {name:string}
+type t2 = MyType<{name:string}>;
+
+
+<!-- type UserType = {
+    name: string;
+    age: number
+} -->
+function getUser() {
+    return {
+        name : "A",
+        age: 12
+    }
+}
+<!-- let user:UserType = getUser(); -->
+
+type userType = ReturnType<typeof getUser>;
+let user:userType = getUser();
+
+```
