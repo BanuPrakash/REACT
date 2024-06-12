@@ -631,7 +631,7 @@ type t2 = MyType<{name:string}>;
     name: string;
     age: number
 } -->
-function getUser() {
+function getUser()  {
     return {
         name : "A",
         age: 12
@@ -643,3 +643,41 @@ type userType = ReturnType<typeof getUser>;
 let user:userType = getUser();
 
 ```
+
+Check this:
+```
+// Omit the 'email' property and make all properties optional.
+type UserUpdate = Omit<User, 'email'> & Partial<User>;
+
+// Create a new type with only the 'name' and 'age' properties, and make them optional.
+type UserSummary = Omit<User, 'email' | 'id'> & Partial<User>;
+
+// Create a new type with only the 'id' property, and make it required.
+type UserId = Pick<User, 'id'> & Required<Pick<User, 'id'>>;
+
+```
+
+npx create-react-app appname --template --cra-template-typescript
+
+========================================
+memo() is a HOC
+
+React Hooks:
+1) useMemo
+2) useState
+3) useEffect
+4) useCallback
+5) useTransition [ react 18]
+6) useDefferedValue [ react 18]
+7) useReducer
+8) useLayoutEffect [ react 18]
+
+React 18 fiber based rendering
+user events became high priority
+
+
+
+Resume @ 11:20
+
+build one application with react-router-dom and react context
+
