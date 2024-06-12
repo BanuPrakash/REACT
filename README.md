@@ -671,6 +671,7 @@ React Hooks:
 6) useDefferedValue [ react 18]
 7) useReducer
 8) useLayoutEffect [ react 18]
+9) Batch updates [ react 18 ]
 
 React 18 fiber based rendering
 user events became high priority
@@ -680,4 +681,24 @@ user events became high priority
 Resume @ 11:20
 
 build one application with react-router-dom and react context
+* Redux Toolkit
+* mobx
 
+Pending:
+Atoms -> molecule -> Organism -> template -> page
+button/Text/Image --> Card -> CardList 
+
+NavbarComponent
+ProductList
+ProductCard
+CartComponent
+CartList
+Details
+Default
+ProductForm
+
+
+npx create-react-app shopapp --template typescript
+
+Libaries:
+npm i axios bootstrap react-bootstrap react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
