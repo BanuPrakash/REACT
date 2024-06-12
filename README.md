@@ -671,7 +671,9 @@ React Hooks:
 6) useDefferedValue [ react 18]
 7) useReducer
 8) useLayoutEffect [ react 18]
-9) Batch updates [ react 18 ]
+9) useContext
+
+Batch updates [ react 18 ]
 
 React 18 fiber based rendering
 user events became high priority
@@ -702,3 +704,68 @@ npx create-react-app shopapp --template typescript
 
 Libaries:
 npm i axios bootstrap react-bootstrap react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+======
+
+React Context : state management --> anti pattern
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+Consumer:
+```
+for class component use this:
+<CartContext.Consumer>
+    {
+        value => {
+            value.addtoCart(...)
+        }
+    }
+
+</CartContext.Consumer>
+
+OR
+
+let {addToCart} = useContext(CartContext);
+
+```
+
+useReducer() hook instead of useState()
+1) state mutation is conditional
+2) state mutation depends on previous state
+
+```
+action object: 
+{
+    type: 'type of action', // ADD_TO_CART, INCREMENT, CLEAR_ITEMS, REMOVE_ITEM
+    payload?: data
+}
+
+reducer function: takes state and action ==> returns new state
+
+function reducer(state, action) {
+  if (action.type === 'incremented_age') {
+    return {
+      age: state.age + 1
+    };
+  }
+  else if  (action.type === 'dec_age') {
+         return {
+                age: state.age - 1
+        };
+  }
+}
+
+export default function Counter() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
+  return (
+    <>
+      <button onClick={() => {
+        dispatch({ type: 'incremented_age' })
+      }}>
+        Increment age
+      </button>
+      <p>Hello! You are {state.age}.</p>
+    </>
+  );
+}
+
+```
