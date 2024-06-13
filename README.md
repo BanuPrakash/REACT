@@ -874,3 +874,42 @@ Using React Wrappers for Spectrum Web Components: [lit]
 npm i @swc-react/button @swc-react/card 
 Default.tsx
 
+=============================
+
+State Management:
+1) Context: by  using anti-pattern ==> part of react library
+
+Predicatable State managment libraries:
+2) Redux
+3) mobx
+4) recoil
+
+Redux as predicatable State managment library:
+1) state management library can be built seperatly and integraed with different view libraries or server side code.
+like: React, Angular, VainllaJS, ExtTS, server side like ExpressJS
+2) time travel debugging
+3) good for microfront
+4) uni-directional flow
+
+Characters of Redux:
+1) store: one store per redux application;
+store is the place where state resides
+central source of truth
+every action has to go thro store
+2) reducer: are function 
+(state, action) => new state
+Note: no need for useReducer
+3) root reducer --> delegate all actions from store to reducers
+
+Bridge redux with view libraries
+1) react-redux
+2) NgRx Store for angular
+
+React time started uni-directional flow to overcome issues in MVC architecture
+Model View Controller
+
+React story:
+https://www.youtube.com/watch?v=8pDqJVdNa44
+
+Flux architecture ==> uni-directional flow
+
