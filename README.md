@@ -979,3 +979,26 @@ Steps to convert Context to RTK:
 react-redux gives hooks:
 * useSelector(): The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
 * useDispatch(): is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
+
+===
+
+Redux uses synchornous action.
+view dispatch action ==> store ==> update the state ==> state is passed to view
+
+Redux uses 3rd party libraries like Thunk / Saga/ ObservableJS for async actions.
+
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+Thunk --> sub-routine / function
+
+dispatch(thunk())
+
+dispatch({type:"LOAD_PRODUCTS", payload: products});
+
+dispatch({type:"LOAD_FAILED", payload: errorMessage});
+
+
+dispatch({type:'', payload: ..})
+
+createAsyncThunk()
+
