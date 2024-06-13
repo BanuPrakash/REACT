@@ -913,3 +913,38 @@ https://www.youtube.com/watch?v=8pDqJVdNa44
 
 Flux architecture ==> uni-directional flow
 
+========
+
+npx create-react-app redux-example
+npm i redux react-redux
+
+connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
+
+function mapStateToProps(state) {
+    return {
+        user_img: state.profile.avatar,
+        products: state.cart.items
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        loginSuccess: (user) => dispatch({type: "USER_LOGIN_SUCCESS"}, payload: user),
+        addToCart: (item) => dispatch({type:"ADD_TO_CART", payload: item})
+    }
+}
+
+props.addToCart({...})
+
+props.loginSuccess(..);
+
+https://immutable-js.com/
+https://immerjs.github.io/immer/
+
+=============
+
+
+

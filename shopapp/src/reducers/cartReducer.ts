@@ -19,6 +19,7 @@ type StateType = {
 export default function cartReducer(state: StateType, action: ActionType) {
     switch (action.type) {
         case 'ADD_TO_CART':
+
             return {
                 cartItems: [...state.cartItems, action.payload],
                 total: state.total + action.payload.amount,
