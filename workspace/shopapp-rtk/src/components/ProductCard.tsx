@@ -3,12 +3,13 @@ import Product from '../model/Product'
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-
+import { addToCart } from '../redux/features/CartSlice';
+import { useAppDispatch } from '../redux/store';
 type AppProps = {
   product: Product
 }
 export default function ProductCard({ product }: AppProps) {
-
+  const dispatch = useAppDispatch();
   return (
     <div className='col-sm-6 col-md-4 mb-2'>
       <Card style={{ width: '18rem' }}>
@@ -23,7 +24,10 @@ export default function ProductCard({ product }: AppProps) {
           Rs.{product.price}
           <span className='right px-2'>
             <FontAwesomeIcon icon={faHeart} color='red' />
-            <FontAwesomeIcon icon={faShoppingCart} color='blue' />
+            <FontAwesomeIcon 
+              onClick={() => dispatch(addToCart({...product, qty: 1, amount: product.price}))}
+              icon={faShoppingCart} 
+              color='blue' />
           </span>
         </Card.Footer>
       </Card>

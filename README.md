@@ -976,3 +976,6 @@ Steps to convert Context to RTK:
 4) remove Context usage in CartComponent.tsx
 5) remove Context usage in CartList.tsx
 
+react-redux gives hooks:
+* useSelector(): The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+* useDispatch(): is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
