@@ -769,3 +769,108 @@ export default function Counter() {
 }
 
 ```
+
+
+npm install  @swc-react/button @swc-react/card
+
+
+
+Recap:
+```
+React Hooks:
+1) useState()
+2) useEffect() ==> componentDidMount(), componentDidUpdate(), componentWillUnmount()
+3) useMemo() 
+4) useDefferedValue()
+5) useTransition() ==> startTranstion(), isPending
+6) useContext() ==> Context Consumer
+7) useReducer()
+depends on reducer function ==> (state, action) => new state
+action:
+{
+    type: 'type_of_action',
+    payload: any
+}
+
+let [state, dispatch] = useReducer(reducerFn, intialValue);
+
+state refers to heap area where data resides
+dispatch(action); => calls reducer, internally state is passed to reducer
+returned value from reducer is used to update the state
+
+8) useLayoutEffect() instead of useEffect() ==> where?
+9) useImperativeHandle() ==> for ref handling
+
+----
+
+Context: Provider and Consumer ==> to avoid passing props thro intermediary components
+
+react-router-dom 
+-> different URLs different components
+-> lazy loading of components
+
+let userContext = createContext({"name": "Banuprakash", pic: "./avatar.png"});
+
+```
+Day 4:
+
+React Hooks:
+10) useNavigate(); --> react-router-dom
+
+Check:
+1) App.tsx: ==> add extra route for "/"
+2) cartReducer.ts
+3) CartContext.tsx ==> updated usage of useReducer(), passing value to context provider
+4) CartList.tsx and CartConmponent.tsx ==> Context Consumer
+
+============
+
+adobe spectrum and adobe web components
+https://spectrum.adobe.com/
+https://react-spectrum.adobe.com/react-spectrum/index.html
+
+npm i @adobe/react-spectrum
+
+Forms:
+```
+1) controlled components: React is having the values of DOM element at any given point
+function LoginForm() {
+    let [username, setUsername] = useState("");
+    let [password, setPwd] = useState("");
+    function submit() {
+        // api call
+    }
+    return <>
+        Username <input type="text" onChange={(evt) => setUsername(evt.target.value)} > <br />
+        Password : <input type="password" onChange={(evt) => setPwd(evt.target.value)} > <br />
+        <button onClick={submit}>Submit</button>
+    </>
+}
+2) uncontrolled components: form components alone hold the state
+
+function LoginForm() {
+    let userRef = useRef();
+    let pwdRef = useRef();
+    function submit() {
+        let user = {
+            username: userRef.current.value,
+            password: pwdRef.current.value
+        }
+        // pass user to POST method api call
+    }
+    return <>
+        Username <input type="text"  ref={userRef}> <br />
+        Password : <input type="password" ref={pwdRef}> <br />
+        <button onClick={submit}>Submit</button>
+    </>
+}
+```
+
+ProductForm.tsx ==> uses adobe spectrum controlled components [ form ]
+
+==========================
+
+Using React Wrappers for Spectrum Web Components: [lit]
+npm i @swc-react/button @swc-react/card 
+Default.tsx
+

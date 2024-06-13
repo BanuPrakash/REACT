@@ -1,5 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import Cart from "../model/Cart";
+import { useNavigate } from "react-router-dom";
+import cartReducer from "../reducers/cartReducer";
 
 type ContextType = {
     cartItems: Cart[],
@@ -7,7 +9,7 @@ type ContextType = {
     quantity: number,
     addToCart: (cart: Cart) => void,
     increment: (id: number) => void,
-    checkout: () => void,
+    checkout: () => void
 }
 
 // js 
@@ -27,21 +29,34 @@ export const CartContext = createContext<ContextType>({
 type AppProps = {
     children: React.ReactNode
 }
-export default function CartProvider({ children }: AppProps) {
-    let [items, setItems] = useState<Cart[]>([]);
-    function addToCart(cart: Cart) {
-        console.log("added ", cart);
-    }
-    function increment(id: number) {
 
+const initialState = {
+    cartItems: [],
+    total: 0,
+    quantity: 0
+}
+
+export default function CartProvider({ children }: AppProps) {
+    let navigate = useNavigate();
+    let [state, dispatch] = useReducer(cartReducer, initialState);
+    function addToCart(item: Cart) {
+        dispatch({ type: 'ADD_TO_CART', payload: item });
+    }
+
+    function increment(id: number) {
+        dispatch({ type: 'INCREMENT', payload: id })
     }
     function checkout() {
-
+        // axios.post...
+        dispatch({ type: 'CLEAR_CART' });
+        navigate('/');
     }
     return <CartContext.Provider value={
         {
-            cartItems: items, total: 0, quantity: 0, addToCart,
-            increment, checkout
+            cartItems: state.cartItems, total: state.total, quantity: state.quantity, 
+            addToCart,
+            increment, 
+            checkout
         }
     }>
         {children}

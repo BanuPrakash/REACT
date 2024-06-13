@@ -28,6 +28,7 @@ function App() {
             <ProductForm />
           </Suspense>} />
         <Route path='/details/:id' element={<Details />} />
+        <Route path='/' element={<ProductList />} />
         <Route path='*' element={<Default />} />
       </Routes>
     </div>
