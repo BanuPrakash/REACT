@@ -21,6 +21,7 @@ export default function NavbarComponent() {
             <Badge>0</Badge>
           </Nav.Link>
           <Nav.Link as={Link} to="/new_product">New Product</Nav.Link>
+          <Nav.Link as={Link} to="/users">Users</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

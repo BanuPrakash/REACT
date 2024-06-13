@@ -1002,3 +1002,38 @@ dispatch({type:'', payload: ..})
 
 createAsyncThunk()
 
+=====================
+
+RTK Query:
+advance data fetching and caching tool, pre-fetching
+built on top of createSlice and createAsyncThunk
+
+npx json-server --watch data.json --port 1234
+
+```
+
+function AddCustomer() {
+    const [addUser] = useAddUserMutation();
+    const {refetch} = useUsersQuery();
+     async function handleSubmit() {
+            const user :User = {
+                id: 23,
+                name: "A",
+                username : "A1",
+                email: "a@adobe.com"
+            } 
+           await addUser(user);
+           refetch();
+    }
+    return <>
+        <button type='button' onClick={() => handleSubmit()}>Add Customer</button>
+    </>
+}
+
+```
+Mobx as state managment and other functionalities...
+
+
+
+
+

@@ -3,6 +3,7 @@ import { cartReducers } from "./features/CartSlice";
 import { userReducer } from "./features/UserSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { productReducer } from "./features/ProductSlice";
+import { userApi } from "./api/UserApi";
 
 // const profile: boolean = process.env.MODE || true;
 
@@ -12,8 +13,13 @@ const store = configureStore({
     reducer: {
         user: userReducer,
         cart: cartReducers,
-        products: productReducer
+        products: productReducer,
+        [userApi.reducerPath]: userApi.reducer
     },
+    // Adding the api middleware enables caching, invalidation, polling,
+    // and other useful features of `rtk-query`.
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(userApi.middleware),
     // devTools : profile
     //devTools: true default is true for window.__REDUX_DEVTOOLS_EXTENSION__() with combine()
 });

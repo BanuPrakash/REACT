@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import Details from './components/Details';
 import Default from './components/Default';
+import UserComponent from './components/UserComponent';
 
 const CartComponent = lazy(() => import('./components/CartComponent'));
 const ProductForm = lazy(() => import('./components/ProductForm'));
@@ -28,6 +29,7 @@ function App() {
             <ProductForm />
           </Suspense>} />
         <Route path='/details/:id' element={<Details />} />
+        <Route path='/users' element={<UserComponent />} />
         <Route path='/' element={<ProductList />} />
         <Route path='*' element={<Default />} />
       </Routes>
