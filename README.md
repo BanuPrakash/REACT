@@ -954,8 +954,24 @@ Redux Toolkit:
 Convert shopapp to use RTK instead of Context for State managment
 
 
+* createSlice
+```
+const slice = createSlice({
+  name: 'test',
+  initialState: 0,
+  reducers: {
+    increment: (state, action: PayloadAction<number>) => state + action.payload,
+    decrement: (state, action: PayloadAction<number>) => state - action.payload,
+    reset: (state, action: PayloadAction<number>) => 0,
+  },
+})
 
+slice.actions.increment(2)
+```
 
-state.cartItems = [];
-state.total = 343434;
-
+Steps to convert Context to RTK:
+1) npm i @reduxjs/toolkit react-redux 
+2) remove context and reducers folder
+3) remove Context reference in ProductCard.tsx
+4) remove Context usage in CartComponent.tsx
+5) remove Context usage in CartList.tsx
