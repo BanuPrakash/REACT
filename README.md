@@ -946,5 +946,16 @@ https://immerjs.github.io/immer/
 
 =============
 
+Redux Toolkit:
+* simple
+* Opinionated
+--> configures many things out of the box by default like ReduxDevtools extension
+* immutable update logic ==> uses immerjs / Autodux for immutability
+Convert shopapp to use RTK instead of Context for State managment
 
+
+
+
+state.cartItems = [];
+state.total = 343434;
 
