@@ -40,14 +40,14 @@ export class CartItem {
 
 class CartStore {
     @observable
-    cart: CartItem[] = []
+    private cart: CartItem[] = []
 
     constructor() {
         makeObservable(this)
     }
 
     @action
-    addToCart(item: CartItem) {
+    public addToCart(item: CartItem) {
         this.cart.push(item);
     }
 
@@ -68,6 +68,10 @@ class CartStore {
         return this.cart.length;
     }
 
+    @computed
+    get getCart() {
+        return this.cart;
+    }
 }
 
 const cartStore = new CartStore(); // singleton

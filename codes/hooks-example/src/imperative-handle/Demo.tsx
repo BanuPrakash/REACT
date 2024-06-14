@@ -8,6 +8,7 @@ function Demo() {
   return (
     <div className='tutorial'>
       <div className='mb-2'>
+
         <Counter ref={counterRef} />
       </div>
       <button onClick={() => counterRef.current?.reset()}>

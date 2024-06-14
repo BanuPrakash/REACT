@@ -1181,3 +1181,20 @@ MobX-state-tree:
 https://mobx-state-tree.js.org/intro/welcome
 
 npm install mobx mobx-state-tree mobx-react-lite
+
+==================
+
+PWA --> Progressive Web Application
+* offline access
+* AppShell
+* run it as native application
+* support notifcation []
+
+// workbox a library by google to use PWA
+npx create-react-app myapp --template --cra-template-pwa
+
+SSR:
+npm run build
+npm run ssr
+
+"use client"

@@ -18,7 +18,9 @@ const Demo = () => {
         // Do nothing for a bit...
     }
 
+    // synchronous
     useLayoutEffect(() => {
+        // anything to do with viewport can be done here like widow.width,...
         setIsAdmin(userId === userIds[0]);
     }, [userId]);
 
