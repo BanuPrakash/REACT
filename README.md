@@ -1151,3 +1151,5 @@ index.tsx, CartComponent.tsx, CartList.tsx
 npm i mobx mobx-logger mobx-react-lite
 
 tsconfig.json --> "experimentalDecorators": true,
+
+Resume @ 11:25
