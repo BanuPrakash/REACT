@@ -6,10 +6,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-
+import { CartContext } from '../context/CartContext';
 
 export default function NavbarComponent() {
-
+  let { quantity } = useContext(CartContext); // Consumer
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
@@ -18,12 +18,9 @@ export default function NavbarComponent() {
           <Nav.Link as={Link} to="/products">Products</Nav.Link>
           <Nav.Link as={Link} to="/cart">
             <FontAwesomeIcon icon={faShoppingCart} color='white' />
-            <Badge>0</Badge>
+            <Badge>{quantity}</Badge>
           </Nav.Link>
           <Nav.Link as={Link} to="/new_product">New Product</Nav.Link>
-          <Nav.Link as={Link} to="/users">Users</Nav.Link>
-          <Nav.Link as={Link} to="/posts">Posts</Nav.Link>
-          <Nav.Link as={Link} to="/comments">Comments</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
