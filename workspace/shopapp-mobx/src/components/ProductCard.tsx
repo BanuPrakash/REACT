@@ -3,12 +3,11 @@ import Product from '../model/Product'
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { CartContext } from '../context/CartContext';
+
 type AppProps = {
   product: Product
 }
 export default function ProductCard({ product }: AppProps) {
-  let {addToCart} = useContext(CartContext); //Consumer
 
   return (
     <div className='col-sm-6 col-md-4 mb-2'>
@@ -24,10 +23,7 @@ export default function ProductCard({ product }: AppProps) {
           Rs.{product.price}
           <span className='right px-2'>
             <FontAwesomeIcon icon={faHeart} color='red' />
-            <FontAwesomeIcon icon={faShoppingCart} color='blue' onClick={
-              () => addToCart({...product, "qty": 1, "amount": product.price})
-              //  () => addToCart({id: product.id, title: product.title, price: product.price,.. "qty": 1, "amount": product.price})
-            }/>
+            <FontAwesomeIcon icon={faShoppingCart} color='blue'/>
           </span>
         </Card.Footer>
       </Card>

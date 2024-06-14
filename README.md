@@ -1088,3 +1088,66 @@ takeEvery("GET_PRODUCTS", fetchProducts);
 takeLatest("GET_PRODUCTS", fetchProducts); // button 5 times
 
 npm i redux-saga
+
+========================
+
+
+Mobx as state managment
+
+
+Mobx is based on Observable observer design pattern on top of un-directional flow by Flux architecture
+
+State:
+* Observable [ generally annotated as @observable]
+* properties you want to observe or change over time.
+* equivalent to useState's state variable
+
+Action:
+ * function that changes the observable state
+ * annotated as action, runInAction
+ * equivalent to useState's setter function
+
+ Derivatives:
+ * anything that is derived from observable state
+ * tracked functions which update automatically when its corresponding state is modified
+ * equivalent to useEffect
+ a) computed values
+  * examples are "total" and "quantity" of Cart
+b) reactions
+   log details 
+
+Example:
+```
+    const rectangle = observable({
+        width: 100,
+        height: 200
+    })
+
+    const area = computed(() => {
+        return rectangle.width * rectangle.height;
+    })
+
+    // everytime obervable changes
+    autorun(() => {
+        console.log(...);
+    })
+
+    // fine grained,
+    // first function retuns a member for which we need to track changes
+    reaction(
+        () => rectangle.width,
+        (value, prev) => {
+            console.log("width changed from " + prev + " to " + value)
+        }
+    )
+
+```
+
+shopapp --> shopapp-mobx
+delete context and reducers folder
+remove all reference to context and reducer.
+index.tsx, CartComponent.tsx, CartList.tsx
+
+npm i mobx mobx-logger mobx-react-lite
+
+tsconfig.json --> "experimentalDecorators": true,

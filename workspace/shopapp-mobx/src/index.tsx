@@ -5,15 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import CartProvider from './context/CartContext';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <BrowserRouter>
-    <CartProvider>
-          <App />
-    </CartProvider>
+
+    <App />
+
   </BrowserRouter>
 );
 
