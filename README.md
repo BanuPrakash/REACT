@@ -1153,3 +1153,31 @@ npm i mobx mobx-logger mobx-react-lite
 tsconfig.json --> "experimentalDecorators": true,
 
 NavbarCompoent, CartComponent ==> observer
+
+Without decorators:
+
+```
+class CartStore {
+    cart: CartItem[] = []
+
+    constructor() {
+        makeObservable(this,
+        cart: observable,
+        total: computed,
+        quantity: computed,
+        addtoCart: action
+    }
+}
+OR
+``
+Here fileds becomes observable, getters become computed and methods become action
+class CartStore {
+    cart: CartItem[] = []
+    constructor() {
+        makeAutoObservable(this)
+    }
+```
+MobX-state-tree:
+https://mobx-state-tree.js.org/intro/welcome
+
+npm install mobx mobx-state-tree mobx-react-lite
