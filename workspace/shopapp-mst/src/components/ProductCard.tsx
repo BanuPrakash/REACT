@@ -3,12 +3,15 @@ import Product from '../model/Product'
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { RootStoreContext } from '../mst/models/Root';
+import { observe } from 'mobx';
+import { observer } from 'mobx-react-lite';
 
 type AppProps = {
   product: Product
 }
-export default function ProductCard({ product }: AppProps) {
-
+function ProductCard({ product }: AppProps) {
+  let store = useContext(RootStoreContext);
 
   return (
     <div className='col-sm-6 col-md-4 mb-2'>
@@ -24,10 +27,15 @@ export default function ProductCard({ product }: AppProps) {
           Rs.{product.price}
           <span className='right px-2'>
             <FontAwesomeIcon icon={faHeart} color='red' />
-            <FontAwesomeIcon icon={faShoppingCart} color='blue' />
+            <FontAwesomeIcon 
+              onClick={() => store.cart.addToCart({...product, qty: 1, amount: product.price})}
+              icon={faShoppingCart} 
+              color='blue' />
           </span>
         </Card.Footer>
       </Card>
     </div>
   )
 }
+
+export default  observer(ProductCard);

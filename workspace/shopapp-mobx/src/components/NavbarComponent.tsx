@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '..';
 import cartStore from '../mobx/CartStore';
 function NavbarComponent() {
-  // let cartStore = useContext(CartContext);
+  let cartStore = useContext(CartContext);
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
