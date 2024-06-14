@@ -1152,4 +1152,4 @@ npm i mobx mobx-logger mobx-react-lite
 
 tsconfig.json --> "experimentalDecorators": true,
 
-Resume @ 11:25
+NavbarCompoent, CartComponent ==> observer

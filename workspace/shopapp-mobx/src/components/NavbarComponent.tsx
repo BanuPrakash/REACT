@@ -1,15 +1,16 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react'
 import { Badge } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '..';
 
-export default function NavbarComponent() {
-  let { quantity } = useContext(CartContext); // Consumer
+function NavbarComponent() {
+  let cartStore = useContext(CartContext);
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
@@ -18,7 +19,7 @@ export default function NavbarComponent() {
           <Nav.Link as={Link} to="/products">Products</Nav.Link>
           <Nav.Link as={Link} to="/cart">
             <FontAwesomeIcon icon={faShoppingCart} color='white' />
-            <Badge>{quantity}</Badge>
+            <Badge>{cartStore.quantity}</Badge>
           </Nav.Link>
           <Nav.Link as={Link} to="/new_product">New Product</Nav.Link>
         </Nav>
@@ -26,3 +27,5 @@ export default function NavbarComponent() {
     </Navbar>
   )
 }
+
+export default observer(NavbarComponent)
