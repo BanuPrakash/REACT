@@ -188,3 +188,27 @@ Also in bigger projects there will be many bundles.
   <script src = "bundle.9712n$21.js"></script>
 
 ```
+
+Module Systems:
+1) CommonJS is the the default module system for NodJS
+
+```
+lib.js
+
+function add() {
+
+}
+
+module.exports = {
+    add
+}
+
+other files:
+const add = require('./lib'); // import
+```
+
+require('webpack');  --> look for builtin module, else search in "node_modules" folder
+
+2) ESM --> ES 6 Module System --> Babel understands this
+import Product from './Product';
+
