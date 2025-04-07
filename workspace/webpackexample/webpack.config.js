@@ -1,7 +1,6 @@
 const webpack = require('webpack');  // installed module
 const path = require('path');  // builtin module
 const config = {
-    module: 'esm',
     entry : './src/index.js',
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -10,16 +9,20 @@ const config = {
     module :{
         rules: [
             {
-                test : /\.js$/,
-                use: {
-                   loader: 'babel-loader'
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  targets: "defaults",
+                  sourceType: "module",
+                  presets: [
+                    ['@babel/preset-env']
+                  ]
                 }
-            },
-            {
-                test : /\.ts$/,
-                loader: 'ts-loader'
+              }
             }
-        ]
+          ]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js']

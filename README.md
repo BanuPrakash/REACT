@@ -212,3 +212,27 @@ require('webpack');  --> look for builtin module, else search in "node_modules" 
 2) ESM --> ES 6 Module System --> Babel understands this
 import Product from './Product';
 
+.babelrc or babel.config.js or babel.config.json to configure presets
+
+```
+npm run dev
+
+
+asset bundle.js 8.28 KiB [emitted] (name: main)
+runtime modules 695 bytes 3 modules
+cacheable modules 3.34 KiB
+  ./src/index.js 928 bytes [built] [code generated]
+  ./src/lib.js 546 bytes [built] [code generated]
+  ./src/Person.js 1.91 KiB [built] [code generated]
+
+npm run prod
+
+
+asset bundle.js 2.24 KiB [emitted] [minimized] (name: main)
+runtime modules 695 bytes 3 modules
+orphan modules 2.44 KiB [orphan] 2 modules
+./src/index.js + 2 modules 3.34 KiB [built] [code generated]
+
+```
+
+node dist/bundle.js
