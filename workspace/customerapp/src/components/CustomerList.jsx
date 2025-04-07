@@ -12,13 +12,27 @@ export default class CustomerList extends Component {
         ]
     }
 
+    deleteCustomer(id) {
+        let custs = this.state.customers.filter(c => c.id !== id);
+        // need to update the state
+
+        // avoid 
+        // this.state.customers = custs; //==> here state gets updated but reconcilliation won't happen
+
+        // right way to update the state
+        this.setState({
+            "customers": custs
+        })
+    }
     render() {
 
         return <div>
-                {
-                    this.state.customers.map(c => <CustomerRow customer={c}/>)
-                }
+            {
+                this.state.customers.map(c => <CustomerRow
+                    delEvent={(id) => this.deleteCustomer(id)}
+                    customer={c} />)
+            }
         </div>
-        
+
     }
 }
