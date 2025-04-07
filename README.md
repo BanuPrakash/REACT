@@ -245,4 +245,16 @@ node dist/bundle.js
 
 npm start
 
-========
+============
+
+create a scaffolding code:
+
+yarn create react-app customerapp
+
+react-scripts --> wrapper on top of webpack
+ "start": "react-scripts start", --> same as
+ "start": "webpack serve --mode development"
+
+https://github.com/chentsulin/awesome-react-renderer
+
+customerapp> npm start
