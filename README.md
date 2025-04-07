@@ -318,3 +318,27 @@ props ==> data / functions passed from parent to children
 ```
 
 map ==> function to transform
+
+Reconciliation in React is the process the framework uses to efficiently update the DOM to match the desired state of the application. When the state or props of a component change, DOM needs to be updated.
+
+{
+    type:"ul",
+    children: [
+        {
+            "type":"li",
+            key:"2014"
+            children: "Connecticut"
+        },
+        {
+            "type":"li",
+            key:"2015"
+            children: "Duke"
+        },
+        {
+            "type":"li",
+            key:"2016",
+            children: "Villanova"
+        }
+    ]
+}
+

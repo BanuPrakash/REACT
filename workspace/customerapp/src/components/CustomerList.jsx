@@ -17,7 +17,7 @@ export default class CustomerList extends Component {
         // need to update the state
 
         // avoid 
-        // this.state.customers = custs; //==> here state gets updated but reconcilliation won't happen
+        //this.state.customers = custs; //==> here state gets updated but reconcilliation won't happen
 
         // right way to update the state
         this.setState({
@@ -29,6 +29,7 @@ export default class CustomerList extends Component {
         return <div>
             {
                 this.state.customers.map(c => <CustomerRow
+                    key={c.id}
                     delEvent={(id) => this.deleteCustomer(id)}
                     customer={c} />)
             }
