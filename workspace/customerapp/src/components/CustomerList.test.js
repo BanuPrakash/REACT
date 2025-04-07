@@ -21,7 +21,7 @@ describe("testing <CustomerList/>", () => {
         let txtBox = screen.getByPlaceholderText('search by name');
         fireEvent.change(txtBox, { "target": { "value": "Geller" } });
         let btns = screen.getAllByRole('button');
-        screen.debug();
+        // screen.debug();
         expect(btns.length).toBe(2);
     })
 
