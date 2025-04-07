@@ -1,3 +1,5 @@
-export default function Filter(){
-    return <input type="text" placeholder="search by name" />
+export default function Filter(props){
+    return <input type="text" 
+            placeholder="search by name" 
+            onChange={(evt) => props.filterEvent(evt.target.value)} />
 }

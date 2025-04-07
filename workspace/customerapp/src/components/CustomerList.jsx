@@ -13,6 +13,13 @@ export default class CustomerList extends Component {
         ]
     }
 
+    // life cycle method
+    componentDidMount() {
+        // make a copy which will be prestine
+        this.setState({
+            original: this.state.customers
+        })
+    }
     deleteCustomer(id) {
         let custs = this.state.customers.filter(c => c.id !== id);
         // need to update the state
@@ -22,13 +29,21 @@ export default class CustomerList extends Component {
 
         // right way to update the state
         this.setState({
+            "original": custs,
+            "customers": custs
+        })
+    }
+
+    filterCustomers(txt) {
+        let custs = this.state.original.filter(c => c.lastName.toLowerCase().indexOf(txt.toLowerCase()) >= 0);
+        this.setState({
             "customers": custs
         })
     }
     render() {
 
         return <div>
-            <Filter />
+            <Filter filterEvent={(txt) => this.filterCustomers(txt)} />
             {
                 this.state.customers.map(c => <CustomerRow
                     key={c.id}
