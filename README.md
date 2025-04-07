@@ -342,3 +342,5 @@ describe ==> assemble
 it / test -=> test spec
 assert --> expect
 npm test
+
+npm test -- --coverage --watchAll
