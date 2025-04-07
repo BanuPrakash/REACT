@@ -309,3 +309,12 @@ prefer jsx as extensions for components
 
 interpolation: Data to presentation  {friend.firstName}
 
+
+props ==> data / functions passed from parent to children
+
+```
+    customer is props passed to CustomerRow component
+    <CustomerRow customer={c}/>
+```
+
+map ==> function to transform

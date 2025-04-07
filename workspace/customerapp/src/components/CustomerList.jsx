@@ -1,4 +1,5 @@
 import { Component } from "react";
+import CustomerRow from "./CustomerRow";
 
 export default class CustomerList extends Component {
     state = {
@@ -12,9 +13,12 @@ export default class CustomerList extends Component {
     }
 
     render() {
-        let friend = this.state.customers[0];
+
         return <div>
-            {friend.firstName}, {friend.lastName}
+                {
+                    this.state.customers.map(c => <CustomerRow customer={c}/>)
+                }
         </div>
+        
     }
 }
