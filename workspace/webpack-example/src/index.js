@@ -1,9 +1,9 @@
 import filter, { add, map } from './lib'; // ESM 
 import Person from './Person'
 
-console.log(add(4,5));
+console.log(add(4, 5));
 
-Promise.resolve('Hello, World');
+// Promise.resolve('Hello, World');
 
 let p = new Person('Vinod', 48);
 console.log(p.getName());

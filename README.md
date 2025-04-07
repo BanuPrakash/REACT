@@ -235,4 +235,14 @@ orphan modules 2.44 KiB [orphan] 2 modules
 
 ```
 
+
+take webpack-example from github
+webpack-example> npm install
+webpack-example> npm run dev
+webpack-example> npm run prod
+
 node dist/bundle.js
+
+npm start
+
+========
