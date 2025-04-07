@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-console.log(App());
+console.log(App()); // JSX to JS object because of
+// @babel/preset-react
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);

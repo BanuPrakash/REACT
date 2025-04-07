@@ -258,3 +258,54 @@ react-scripts --> wrapper on top of webpack
 https://github.com/chentsulin/awesome-react-renderer
 
 customerapp> npm start
+
+========
+
+React's main job is to convert JSX to JS Object.
+Actual View is rendered by different renders [react-dom, react-native, react-tv]
+
+Core of React API is :
+
+1) createElement
+
+
+React.createElement("h1", {style:{'color':'red'}}, 'Welcome');
+
+Nested:
+React.createElement("div", null, 
+React.createElement("h1", {style:{'color':'red'}}, 'Welcome'));
+
+2) functional Component: returns JSX which is in turn given to React.createElement to convert to JS Object
+
+```
+    function MyComponent() {
+        return <div> 
+        <h1 style={{'color':'red'}}>
+            Welcome
+        </h1>
+        </div>
+    }
+```
+
+3) Class Component: render() returns JSX
+```
+class MyComponent extends Component {
+    render() {
+        return <div> 
+        <h1 style={{'color':'red'}}>
+            Welcome
+        </h1>
+        </div>
+    }
+}
+
+```
+
+98% of the time we use Functional components from React version 16.8+
+
+Class Component can have state and behavior
+
+prefer jsx as extensions for components
+
+interpolation: Data to presentation  {friend.firstName}
+
