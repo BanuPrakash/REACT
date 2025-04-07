@@ -5,7 +5,7 @@ import CustomerList from './components/CustomerList';
 function App() {
   return (
     <div className="App">
-      Customer List!!!
+      <h1>Customer List!!!</h1>
       <CustomerList />
     </div>
   );

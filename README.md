@@ -321,24 +321,24 @@ map ==> function to transform
 
 Reconciliation in React is the process the framework uses to efficiently update the DOM to match the desired state of the application. When the state or props of a component change, DOM needs to be updated.
 
-{
-    type:"ul",
-    children: [
-        {
-            "type":"li",
-            key:"2014"
-            children: "Connecticut"
-        },
-        {
-            "type":"li",
-            key:"2015"
-            children: "Duke"
-        },
-        {
-            "type":"li",
-            key:"2016",
-            children: "Villanova"
-        }
-    ]
-}
+=====================
 
+Testing
+* Unit Testing -> Testing in Isolation
+* Jasmine / mocha / JEST are popular Unit testing libraries for JS
+* By default React scaffolding code includes JEST
+* On top of it, it adds React Testing Library for react specific test assertions...
+
+testing files preferably should be of format
+filename.test.js or
+filename.spec.js 
+
+Testing is all about AAA
+A ==> Assemble
+A ==> Action
+A ==> Assert
+
+describe ==> assemble
+it / test -=> test spec
+assert --> expect
+npm test

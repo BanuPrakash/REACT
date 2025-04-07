@@ -13,7 +13,7 @@ export default class CustomerList extends Component {
         ]
     }
 
-    // life cycle method
+    // life cycle method --> more explanation will follow
     componentDidMount() {
         // make a copy which will be prestine
         this.setState({
