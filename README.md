@@ -597,3 +597,5 @@ productspp> npm i bootstrap react-bootstrap react-router-dom axios @fortawesome/
 
 
 axios instead of fetch for API calls
+
+<a href=""> for server side routing ---> whole page reloads
