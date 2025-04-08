@@ -353,3 +353,46 @@ Testing in isolation, by mocking dependencies
 
 for <CustomerRow> props [customer and delEvent] are dependencies coming from CustomerList
 ```
+
+Recap of Day 1:
+
+Part 1:
+Why NodeJS?
+JS build tool: Webpack
+loaders: babel-loader, ts-loader, file-loader, css-loader, ...
+@babel/core --> transpiler [higherversion.js ---> lowerversion.js]
+tsc --> compiler [.ts --> .js]
+@babel/preset-env: used for syntax transforms [arrow, spread operators], pollyfills [example functionalities like Promise are not available in lower version target JS engine: Solution provide alternate implementation of Promise {like core-js library}]
+
+HtmlWebpackPlugin: created bundle is placed in template file [index.html]
+
+@babel/preset-react: used to convert JSX to JS object
+
+Part 2:
+create-react-app helper with yarn or npm can be used to create a scaffolding code for react
+
+npm create-react-app customerapp
+yarn create react-app customerapp
+
+creates a application built using webpack [hidden], react-scripts acts like a wrapper on top of webpack.
+creates a sample Component App.js
+creates an entry file index.js, which contains code to render the component using ReactDOM
+
+Part 3:
+React components can be created using:
+a) React.createElement()
+b) functional component --> returns JSX, name of the function has to start with uppercase
+c) class component --> can have state and behaiour. render() returns JSX
+
+Part 4:
+RTL: React Testing Library built on top of JEST is used for Unit testing react components.
+
+Part 5:
+Reconcilliation: re-rendring UI when state of props change.
+DOM vs VDOM
+Any changes done in the react application, first takes a copy of VDOM and makes changes in copy.
+Diff Algorithm between VDOM and VDOM_Copy. based on the changes updates happen. After updating. VDOM_Copy becomes the main VDOM and old VDOM will be destroyed
+
+======
+
+Day 2:
