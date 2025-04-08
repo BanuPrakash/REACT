@@ -407,3 +407,72 @@ bind the context:
 
 OR better
 ```
+
+Thinking in React: https://react.dev/learn/thinking-in-react
+
+Atoms: Basic Building blocks of matter such as Button, input, image;
+most of the time we use this from already available components from 3rd party libraries
+like Kendo, PrimeReact, react-bootstrap, adobe web spectrum
+
+```
+ <Button variant="primary">Primary</Button>
+```
+
+Molecules: Grouping atoms together --> Card
+```
+<Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
+```
+
+Organisms: Combining molecules --> CardList
+
+Template: grouping Organisms.
+
+===============
+Functional components were meant only for pure view components, no logic prior to version 16.
+
+React 16.4 introduced React Hooks.
+React hooks are used only in functional components to introduce state and life-cycle methods in functional components.
+
+Functional components are light-weight compared to class component
+
+React Hooks:
+* useState()
+* useEffect()
+* useReducer()
+* useCallback()
+* useRef()
+* useMemo()
+* useContext()
+
+yarn create react-app hooksdemo
+
+```
+    state = {
+        name: "Karthik",
+        age: 18
+    }
+
+    setName(arg) {
+        this.setState({
+            name: arg
+        })
+    }
+
+    setAge(arg) {
+        this.setState({
+            age: arg
+        })
+    }
+```
+
+npm i boostrap
