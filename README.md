@@ -476,3 +476,17 @@ yarn create react-app hooksdemo
 ```
 
 npm i boostrap
+
+============
+
+React Context: Context provides a way to pass data through the component tree without having to pass props down manually at every level. Avoid props drill
+
+{
+    avatar: "profilepic.png",
+    name: "BanuPrakash"
+}
+
+<Comp>
+    <E />
+    <A />
+</Comp>
