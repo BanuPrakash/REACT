@@ -534,4 +534,66 @@ ACTION : CLEAR_CART
 
 ```
 
-reducer example to INCREMENT and DECREMENT a counter
+shouldComponentUpdate() of class component in functional component --> Memoization pattern
+Memoization is an optimization technique that speeds up computer programs by storing the results of expensive function calls and reusing them when the same inputs occur again,
+
+React.memo() which can be used to memoize the prev state and props. only if they have changed it renders the component.
+
+React.memo() is a HOC High Order Component: takes a component and conditionally return a component
+
+```
+
+function NameComponent(props) {
+    console.log("NameComponent renders!!!")
+    return (
+        <div>In NameComponent name is: {props.name}</div>
+    )
+}
+
+const MemoNameComponent = React.memo(NameComponent);
+export default MemoNameComponent;
+
+optionally 
+
+function doCheck(prevProps, prevState) {
+    // logic
+}
+
+const MemoNameComponent = React.memo(NameComponent, doCheck);
+
+```
+
+Controlled and Uncontrolled Components:
+Controlled components manage their state through React state.
+while uncontrolled components manage their state internally, relying on the DOM for interactions
+
+==============================
+
+Build one application using hooks, Context, reducer: Using Context as State management
+
+Same application we will migrate to Redux Toolkit / Mobx for State Managment
+
+* NavigationComponent
+* ProductList
+* ProductCard
+* Details
+* Cart
+* CartList
+* ProductForm
+* Default
+
+React Routers: different URLs has to display different Components and Lazy loading of components.
+
+http://localhost:3000/products
+http://localhost:3000/details/2
+http://localhost:3000/cart
+http://localhost:3000/new_product
+http://localhost:3000/sdfsd 
+
+
+yarn create react-app productsapp
+
+productspp> npm i bootstrap react-bootstrap react-router-dom axios @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+
+axios instead of fetch for API calls
