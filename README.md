@@ -396,3 +396,7 @@ Diff Algorithm between VDOM and VDOM_Copy. based on the changes updates happen. 
 ======
 
 Day 2:
+
+Class Component Life-cycle methods
+
+onClick={() => this.incrementAge()} --> need to revisit
