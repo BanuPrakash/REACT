@@ -8,6 +8,11 @@ export default class ParentComponent extends Component {
         age: 25
     }
 
+    constructor() {
+        super();
+        this.changeName = this.changeName.bind(this);
+        this.incrementAge = this.incrementAge.bind(this);
+    }
     incrementAge() {
         this.setState({
             age: this.state.age + 1
@@ -28,7 +33,7 @@ export default class ParentComponent extends Component {
                 Age : {this.state.age} <br />
                 <NameComponent name={this.state.name} />
                 <AgeComponent age={this.state.age} />
-                <button type='button' onClick={() => this.incrementAge()}>Change Age</button> <br />
+                <button type='button' onClick={this.incrementAge}>Change Age</button> <br />
                 <button type='button' onClick={() => this.changeName()}>Change Name</button> <br />
             </div>
         )

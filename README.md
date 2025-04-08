@@ -399,4 +399,11 @@ Day 2:
 
 Class Component Life-cycle methods
 
+```
 onClick={() => this.incrementAge()} --> need to revisit
+
+bind the context:
+<button type='button' onClick={this.incrementAge.bind(this)}>Change Age</button> <br />
+
+OR better
+```
