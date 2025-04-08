@@ -481,12 +481,57 @@ npm i boostrap
 
 React Context: Context provides a way to pass data through the component tree without having to pass props down manually at every level. Avoid props drill
 
+
+useReducer(): has to be used instead of useState() when state mutation depends on previous state and conditionally mutate the state.
+
+useState()
+let [name, setName] = useState("Karthik");
+setName("Gopal"); // it over writes the previous data
+
+```
+Complex Data --> State: like Shopping Cart:
 {
-    avatar: "profilepic.png",
-    name: "BanuPrakash"
+    "date:" "8-APR-2025",
+    "items": [
+        {"id": 6, name: "iPhone", qty: 2},
+        {"id": 91, "name": "Sony OLED", qty: 1}
+    ],
+    "total": 923423.21
 }
 
-<Comp>
-    <E />
-    <A />
-</Comp>
+Based on different Actions, different way we need to mutate, also i need to use previous state
+
+ACTION: ADD_TO_CART
+payload: new item
+
+ACTION: REMOVE_FROM_CART
+payload: 91
+
+ACTION: INCREASE
+payload: 6
+
+ACTION : CLEAR_CART
+
+```
+
+1) action object
+```
+{
+    type : type_of_action,
+    payload: data // optional
+}
+```
+
+2) reducer function: takes prev state and action, returns new state
+
+```
+    function cartReducer(state, action) {
+        switch(action.type) {
+            case 'ADD_TO_CART': ...
+            case 'REMOVE_FROM_CART': ...
+        }
+    }
+
+```
+
+reducer example to INCREMENT and DECREMENT a counter
