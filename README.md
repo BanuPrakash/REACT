@@ -345,9 +345,11 @@ npm test
 
 npm test -- --coverage --watchAll
 
+```
 render(<CustomerList />); ==> integration testing, not unit testing
 CustomerList ==> renders 5 CustomerRow and a Filter component
 
 Testing in isolation, by mocking dependencies
 
 for <CustomerRow> props [customer and delEvent] are dependencies coming from CustomerList
+```

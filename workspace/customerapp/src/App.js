@@ -1,6 +1,7 @@
 
 import './App.css';
 import CustomerList from './components/CustomerList';
+import Sample from './components/Sample';
 
 function App() {
   return (
