@@ -709,3 +709,11 @@ onClick = {() => props.add(product)}
 yarn create react-app reduxexample
 
 reduxexample> npm i redux react-redux
+
+=======================
+
+Redux Tool Kit: The official, opinionated, batteries-included toolset for efficient Redux development
+
+yarn create react-app productapp-rtk --template typescript
+
+productapp-rtk> npm i @reduxjs/toolkit react-redux
