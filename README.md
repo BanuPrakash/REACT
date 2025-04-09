@@ -702,3 +702,11 @@ function mapDispatchToProps(dispatch) {
 onClick = {() => props.add(product)}
 
 ```
+
+* Sample app to understand Redux [core]
+* migrate ProductApp to RTK [ Redux Tool kit]
+
+yarn create react-app reduxexample
+
+reduxexample> npm i redux react-redux
+
