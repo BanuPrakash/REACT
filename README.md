@@ -717,3 +717,8 @@ Redux Tool Kit: The official, opinionated, batteries-included toolset for effici
 yarn create react-app productapp-rtk --template typescript
 
 productapp-rtk> npm i @reduxjs/toolkit react-redux
+
+Hooks:
+useSelector() The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+
+useDispatch() The selector is approximately equivalent to the mapDispatchToProps argument to connect conceptually.

@@ -44,3 +44,6 @@ function App() {
 }
 
 export default App;
+
+
+// connect(mapStateToProps, mapDispatchToProps)(App); --> not required
