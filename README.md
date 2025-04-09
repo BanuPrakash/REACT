@@ -599,3 +599,26 @@ productspp> npm i bootstrap react-bootstrap react-router-dom axios @fortawesome/
 axios instead of fetch for API calls
 
 <a href=""> for server side routing ---> whole page reloads
+
+==================
+
+Recap of Day 2:
+* hooks: useState, useReducer, useEffect, useContext
+* React Context: to avoid passing props thro intermediary components
+* react-router-dom
+- different views for different URLs
+- lazy loading of components, lazy and Suspence 
+* Controlled Components and Uncontrolled Component
+* useRef() hook to create reference / pointer 
+* createRef() same as useRef() and has to be used in Class Component
+* useParams() to read Path parameters from URL
+
+Day 3
+
+https://immerjs.github.io/immer/
+https://immutable-js.com/
+
+<CartProvider>
+    <A/>
+    <B/>
+</CartProvider>

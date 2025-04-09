@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, createRef } from 'react'
 
 export default function UncontrolledComponent() {
-    let nameRef = useRef();
+     let nameRef = useRef();
+    //let nameRef = createRef(); // class component
     let ageRef = useRef(); 
     function doSubmit() {
         let user = {
