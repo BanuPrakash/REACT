@@ -37,7 +37,7 @@ export default function CartProvider({ children }: Props) {
     const navigate = useNavigate();
     // @ts-ignore
     let [state, dispatch] = useReducer(cartReducer, initialState);
-    
+
     function addToCart(product:Product) {
         dispatch({ type: 'ADD_TO_CART', payload: product });
     }

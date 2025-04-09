@@ -646,3 +646,59 @@ productapp_ts % npm i react-router-dom axios @fortawesome/react-fontaw
 esome @fortawesome/free-solid-svg-icons
 
 npm i bootstrap react-bootstrap
+
+=========================
+
+Predictable State Managment
+* React Context was not intended for State management; as anti-pattern developers can use them for small to mid sized react application
+Issues:
+1) no time travel debugging
+2) State management logic should be externalized, testing and integrated with various UI libraries like [Angular / React / Vue / Backbone]
+3) React Context is specific to React , will be an issue later if we get into Micro-Frontend application
+4) Context doesn't scale
+
+Facebook introduced Flux Architecture for state managment --> Single direction flow
+Action --> Dispatcher -> Store --> View
+Store is a place where data resides, it's also an event emitter. Views subscribe for the events
+Flux gave Dispatcher [built in]
+Action --> type and payload
+
+* Redux
+* mobx
+* Recoil
+* Zustand
+
+Redux has Single store. Flux supports multiple stores
+
+```
+dispatch({type:'ADD_TO_CART', payload: product})
+
+connect({
+    mapStateToProps,
+    mapDispatchToProps
+}) (App);
+
+// state --> store state
+function mapStateToProps(state) {
+    return {
+        items: state.cart.cartItems,
+        tot : state.cart.total,
+        pic: state.profile.avatar
+    }
+}
+
+<img src = {props.pic} />
+
+{
+    props.items.map(...)
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        add: (product) =>  dispatch({type:'ADD_TO_CART', payload: product})
+    }
+}
+
+onClick = {() => props.add(product)}
+
+```
