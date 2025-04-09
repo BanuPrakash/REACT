@@ -619,5 +619,30 @@ https://immerjs.github.io/immer/
 https://immutable-js.com/
 
 npx json-server --watch data.json --port 1234
+
 http://localhost:1234/products
+
 http://localhost:1234/orders
+
+===============
+
+TypeScript
+
+yarn create react-app productapp_ts --template typescript 
+
+typescript --> tsc compiler instead of default @babel/core
+
+Most of the libraries present are in JS. To use them in typescript application we need type definition.
+* typings.d.ts where we can have type declaration
+Prefer using https://github.com/DefinitelyTyped/DefinitelyTyped which contains type definitions.
+
+"@types/jest", "@types/node", "@types/react", "@types/react-dom"
+
+No need for below when used with template:
+
+tsc --init would have created tsconfig.json
+
+productapp_ts % npm i react-router-dom axios @fortawesome/react-fontaw
+esome @fortawesome/free-solid-svg-icons
+
+npm i bootstrap react-bootstrap
