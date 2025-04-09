@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 import cartReducer from '../reducers/cartReducer';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const CartContext = createContext(); // placeholder, heap area
 
@@ -21,8 +22,19 @@ export default function CartProvider({ children }) {
     }
     function clearCart() {
         // place the order, API call to server
-        dispatch({ type: 'CLEAR_CART' });
-        navigate("/");
+        //window.sessionStorage.setItem("user", "banu@gmail.com")
+        let order = {
+            customer: window.sessionStorage.getItem("user"),
+            orderDate: new Date(),
+            items: state.cartItems,
+            total: state.total
+        }
+
+        axios.post("http://localhost:1234/orders", order).then(response => {
+            dispatch({ type: 'CLEAR_CART' });
+            navigate("/");
+        })
+
     }
     return (
         <CartContext.Provider value={{

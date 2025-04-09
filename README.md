@@ -618,3 +618,6 @@ Day 3
 https://immerjs.github.io/immer/
 https://immutable-js.com/
 
+npx json-server --watch data.json --port 1234
+http://localhost:1234/products
+http://localhost:1234/orders
