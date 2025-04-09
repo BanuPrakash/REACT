@@ -618,7 +618,3 @@ Day 3
 https://immerjs.github.io/immer/
 https://immutable-js.com/
 
-<CartProvider>
-    <A/>
-    <B/>
-</CartProvider>

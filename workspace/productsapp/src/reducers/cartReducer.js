@@ -2,9 +2,9 @@
 // should not mutate the reference
 // why immutable is important , later
 export default function cartReducer(state, action) {
-    switch(action.type) {
+    switch (action.type) {
         case 'ADD_TO_CART':
-            const product = {...action.payload}; // clone
+            const product = { ...action.payload }; // clone
             let item = {
                 id: product.id,
                 title: product.title,
@@ -17,11 +17,11 @@ export default function cartReducer(state, action) {
             let cartItems = state.cartItems; // ref
             // avoid state.cartItems.push(item); 
             let total = state.total += item.amount;
-            return {cartItems: [...cartItems, item], total}
+            return { cartItems: [...cartItems, item], total, quantity: state.quantity + 1 }
         case 'INCREMENT':
             let products = state.cartItems;
             products.forEach(p => {
-                if(p.id === action.payload) {
+                if (p.id === action.payload) {
                     p.qty++;
                     p.amount = p.price * p.qty
                 }
@@ -29,14 +29,15 @@ export default function cartReducer(state, action) {
             // update the total
             // map -- transform
             // reduce -- aggregate
-            total = products.map(p => p.amount).reduce((a1, a2) => a1 + a2, 0.0);
-            return {cartItems: products, total};
+            let tot = products.map(p => p.amount).reduce((a1, a2) => a1 + a2, 0.0);
+            return { cartItems: products, total: tot };
         case 'DECREMENT':
             return state;
         case 'CLEAR_CART':
             return {
                 cartItems: [],
-                total: 0
+                total: 0,
+                quantity: 0
             }
         default:
             return state;
