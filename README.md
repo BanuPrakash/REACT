@@ -709,4 +709,3 @@ onClick = {() => props.add(product)}
 yarn create react-app reduxexample
 
 reduxexample> npm i redux react-redux
-
