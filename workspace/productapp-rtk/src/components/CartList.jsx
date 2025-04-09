@@ -1,10 +1,11 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-
+import { useAppDispatch } from '../redux/store'
+import { increment } from '../redux/cartSlice'
 
 export default function CartList({ product }) {
-
+  let dispatch = useAppDispatch();
   return (
     <div className='container'>
       <div className='row my-2'>
@@ -19,7 +20,9 @@ export default function CartList({ product }) {
           &nbsp;
           {product.qty}
           &nbsp;
-          <FontAwesomeIcon icon={faPlus} color='blue'  />
+          <FontAwesomeIcon icon={faPlus} color='blue'  
+          onClick={() => dispatch(increment(product.id))}
+          />
         </div>
 
         <div className='col-md-2'>
