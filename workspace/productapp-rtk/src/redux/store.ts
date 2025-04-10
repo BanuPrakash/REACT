@@ -2,13 +2,15 @@ import { configureStore } from "@reduxjs/toolkit";
 import { cartReducer } from "./cartSlice";
 import { profileReducer } from "./profileSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { productReducer } from "./productSlice";
 
 //configureStore instead of createStore
 // by default __REDUX_DEV_TOOLS_EXTENSION__() is configured
 const store = configureStore({
     reducer: {
         cart: cartReducer,
-        profile: profileReducer
+        profile: profileReducer,
+        products: productReducer
     }
 });
 

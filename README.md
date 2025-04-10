@@ -722,3 +722,90 @@ Hooks:
 useSelector() The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
 
 useDispatch() The selector is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
+
+Day 4:
+
+State Management
+* Context
+* Flux Architecture : Redux / Mobx , ...
+
+Redux :
+
+* A Single Store : state resides in Store, every action is intercepted by store
+* Reducers: (state, action) return new state
+* RootReducer: combineReducers and integrates with store
+
+React-Redux:
+connect --> state is store to props, dispatch to props
+useSelector() --> hook mapStateToProps
+useDispatch() --> hook mapDispatchToProps
+
+RTK: opiniated [REDUX_DEVTOOLS_EXTENSION], built-in immutable logic, less code
+* createSlice: configure action to reducer function
+* configureStore instead of createStore
+
+======
+
+Redux Async Logic: Redux was designed for handling  synchronous action.
+
+View --> dispatch action --> store --> root reducer --> reducer --> returns new state --> store --> store updates the state --> passes the new state to view
+
+To implement asynchronous actions in redux we need middleware: Thunk and Saga
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+Thunk: procedure/function
+
+Redux perspective Thunk is a middleware library.
+
+View -> can dispatch action/thunk
+
+dispatch(doTask()); --> here middleware intercepts
+dispatch({type:'ADD',payload:'data}); --> middleware is bypassed and directly passes to store 
+
+RTK: provides support for Thunk out of the box, no need to expliclty install thunk library
+
+```
+const fetchUserById = createAsyncThunk(
+  'users/fetchById',
+  async (userId: number) => {
+    const response = await fetch(`https://reqres.in/api/users/${userId}`)
+    // Inferred return type: Promise<MyData>
+    return (await response.json()) as MyData
+  },
+)
+
+as soon as "fetchUserById()" is dispatched, it triggers an action fetchUserById.pending
+if provided async function is completed, it triggers fetchUserById.fulfilled
+if any errors, it triggers fetchUserById.rejected
+
+fetchUserById.pending --> start displaying spinner component
+fetchUserById.fulfilled --> display the user
+fetchUserById.rejected --> Error component
+
+const usersSlice = createSlice({
+  name: 'users',
+  initialState: {
+    entities: {},
+    error: null,
+  },
+  reducers: {}, // are for actions dispatched by view
+  extraReducers: (builder) => {
+     builder.addCase(fetchUserById.pending, ..) => {
+
+     }
+    builder.addCase(fetchUserById.fulfilled, (state, { payload }) => {
+      state.entities[payload.id] = payload
+    })
+    builder.addCase(fetchUserById.rejected, (state, action) => {
+      if (action.payload) {
+        // Since we passed in `MyKnownError` to `rejectValue` in `updateUser`, the type information will be available here.
+        state.error = action.payload.errorMessage
+      } else {
+        state.error = action.error
+      }
+    })
+  },
+})
+
+
+```
