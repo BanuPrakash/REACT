@@ -8,6 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Badge} from 'react-bootstrap'
 import { useAppSelector } from './redux/store';
+import Customers from './components/Customers';
 // FCP issues can be resolved
 const Cart = lazy(() => import('./components/Cart'));
 const Details = lazy(() => import('./components/Details'));
@@ -25,6 +26,7 @@ function App() {
             <Nav.Link as={Link} to="/products">Products</Nav.Link>
             <Nav.Link as={Link} to="/cart">Cart <Badge>{quantity}</Badge></Nav.Link>
             <Nav.Link as={Link} to="/new_product">Product Form</Nav.Link>
+            <Nav.Link as={Link} to="/customers">Customers</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -37,6 +39,7 @@ function App() {
         } />
         <Route path='/details/:id' element={<Details />} />
         <Route path='/new_product' element={<ProductForm />} />
+        <Route path='/customers' element={<Customers />} />
         <Route path='/' element={<ProductList />} />
         <Route path='*' element={<Default />} />
       </Routes>

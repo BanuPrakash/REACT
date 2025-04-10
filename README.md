@@ -809,3 +809,8 @@ const usersSlice = createSlice({
 
 
 ```
+
+RTK Query: Compared to createAsyncThunk, it's an advanced data fetching and caching tool, also has pre-fetching.
+IntersectionObserver: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+
+=
