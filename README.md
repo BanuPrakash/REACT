@@ -814,3 +814,79 @@ RTK Query: Compared to createAsyncThunk, it's an advanced data fetching and cach
 IntersectionObserver: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 
 =
+
+Refetch:
+```
+
+const CustomerForm = () => {
+    const [addCustomer] = useCustomerPostMutation();
+    const {refetch} = useCustomersQuery();
+    async function handleSubmit() {
+        const customer = {
+            "id": "11",
+            "name": "Jack",
+            "username": "Jackson",
+            "email": "jack@cisco.com"
+        }
+
+        await addCustomer(customer);
+        refetch();
+    }
+    return <div>
+        <button type='button' onClick={handleSubmit}>Add Customer</button>
+    </div>
+}
+```
+
+Auto-refetching:
+Tags --> name of collection of data controlled for caching and invalidation of cache
+
+Pre-fetching
+
+useCallback --> is to memoize the function
+
+```
+function Products() {
+    let [state, setState] = useState();
+    function addProduct() {
+        ...
+    }
+    return <div>
+        <ProductForm addProduct={addProduct} />
+    </div>
+}
+
+function ProductForm({addProduct}) {
+    ...
+}
+
+export default React.memo(ProductForm);
+
+
+```
+
+Why Migrate to React 18+
+
+Prior to React 18:
+import ReactDOM from 'react-dom';
+ReactDOM.render(<App/>, document.getElementById("root"));
+
+Used Stack rendering
+
+After React 18+:
+import ReactDOM from 'react-dom/client';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+Fiber Architecture: supports concurrency
+
+https://claudiopro.github.io/react-fiber-vs-stack-demo/
+
+performUnitOfWork()
+beginWork()
+competeWork()
+
+==========
+
+HOC: like HOF, takes a component and returns a Component.
+Use this for cross-cutting concerns
+

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCustomerQuery, useCustomersQuery } from '../redux/api/customerApi'
+import { useCustomerPostMutation, useCustomerQuery, useCustomersQuery } from '../redux/api/customerApi'
 /*
     isLoading: true when loading for first time
     isFetching: true when loaded from cache
@@ -14,10 +14,12 @@ export default function Customers() {
             {
                 isSuccess && (
                     <div>
+                         <CustomerForm />
                         {users.map(user => {
                             return <div key={user.id}>
                                 {user.username} <br />
-                                <CustomerDetails id={user.id} />
+                               
+                                 {/* <CustomerDetails id={user.id} />  */}
                             </div>
                         })
                         }
@@ -28,7 +30,27 @@ export default function Customers() {
     )
 }
 
+const CustomerForm = () => {
+    const [addCustomer] = useCustomerPostMutation();
+    // const {refetch} = useCustomersQuery();
+    async function handleSubmit() {
+        const customer = {
+            "id": "11",
+            "name": "Jack",
+            "username": "Jackson",
+            "email": "jack@cisco.com"
+        }
+
+        await addCustomer(customer);
+        // refetch();
+    }
+    return <div>
+        <button type='button' onClick={handleSubmit}>Add Customer</button>
+    </div>
+}
 const CustomerDetails = ({ id }: { id: string }) => {
-    const { data } = useCustomerQuery(id);
+    const { data } = useCustomerQuery(id, {
+        pollingInterval: 1000
+    });
     return <pre>{JSON.stringify(data)}</pre>
 }
