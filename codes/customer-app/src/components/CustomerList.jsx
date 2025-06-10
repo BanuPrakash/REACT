@@ -36,14 +36,23 @@ export default class CustomerList extends Component {
         }]
     }
 
-    deleteCustomer(id) {
-        let custs = this.state.customers.filter(c => c.id !== id);
-
-        // this.state.customers = custs; // update the state, reconcillation won't happen
-
-        // update the state
+    componentDidMount() {
+        this.state.complete = this.state.customers; // copy
+    }
+    filterCustomers(txt) {
+        let custs = this.state.complete.filter(c => c.name.indexOf(txt) >= 0);
         this.setState({
             customers: custs
+        })
+    }
+    
+    deleteCustomer(id) {
+        let custs = this.state.customers.filter(c => c.id !== id);
+        // this.state.customers = custs; // update the state, reconcillation won't happen
+        // update the state
+        this.setState({
+            customers: custs,
+            complete: custs
         })
 
         console.log(this.state.customers.length);
@@ -52,7 +61,7 @@ export default class CustomerList extends Component {
     render() {
         return (
             <div>
-                <Filter />
+                <Filter filterEvent={(txt) => this.filterCustomers(txt)}/>
                 {
                     this.state.customers.map(customer => <CustomerRow
                         delEvent={(id) => this.deleteCustomer(id)}

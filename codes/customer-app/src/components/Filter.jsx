@@ -1,10 +1,13 @@
 import React from 'react'
 
-// JSX
-export default function Filter() {
+// return JSX
+export default function Filter(props) {
   return (
     <div>
-        <input type='text' placeholder='search by name' />
+        <input type='text' 
+        placeholder='search by name'
+        onChange={(evt) => props.filterEvent(evt.target.value)}
+        />
     </div>
   )
 }
