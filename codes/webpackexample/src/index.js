@@ -16,14 +16,14 @@ let React = {
 }
 // JSX
 let ProductCard = <div className="card">
-    <h1 className="card-header">iPhone</h1>
-    <h3>Rs.  89000.00</h3>
+    <h1 className="card-header">{product.getName()}</h1>
+    <h3>Rs.  {product.getPrice()}</h3>
 </div>
 
 console.log(ProductCard)
 
 function render(element, container) {
-    console.log(element.tag);
+
     if (['string', 'number'].includes(typeof element)) {
         console.log(element)
         container.appendChild(document.createTextNode(String(element)));
@@ -37,4 +37,4 @@ function render(element, container) {
     container.appendChild(domElement);
     console.log(container);
 }
-render(<ProductCard />, document.getElementById("root"));
+render(ProductCard, document.getElementById("root"));
