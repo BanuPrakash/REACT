@@ -120,3 +120,18 @@ Promise.resolve(() => 100);
 
 nodejs --> builtin modules
 3rd party modules are downloaded into node_modules folder
+
+npm i
+
+Module Systems: IIFE, CommonJS, ESM, System, AMD, ...
+
+ESM --> Module System.
+
+Default module system is CommonJS understood by JS engine
+
+```
+module.exports = {add, subtract}
+
+index.js
+let {add, subtract} = require('./lib');
+```
