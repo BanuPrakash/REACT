@@ -180,3 +180,15 @@ Organisms: These are more complex components made up of molecules and/or atoms. 
 
 Templates: These are page-level layouts that define the structure of a page without specific content. They are composed of organisms and molecules.
 Pages: These are specific instances of templates with real content. They represent the final user interface that users see.
+
+====
+
+class component can have state, behaviour and life-cycle methods
+
+map --> HOF --> transform
+
+props --> mechanism to pass data/function to child component [like attributes of XML]
+
+```
+    <img src="a.gif" width="200px" >
+```
