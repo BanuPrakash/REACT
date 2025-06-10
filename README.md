@@ -192,3 +192,7 @@ props --> mechanism to pass data/function to child component [like attributes of
 ```
     <img src="a.gif" width="200px" >
 ```
+ 
+ Each child in a list should have a unique "key" prop.
+ https://legacy.reactjs.org/docs/reconciliation.html
+ Reconciliation: whenever props, state changes React component is re-rendered.

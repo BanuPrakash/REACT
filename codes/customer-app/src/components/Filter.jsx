@@ -1,7 +1,11 @@
 import React from 'react'
 
+// JSX
 export default function Filter() {
   return (
-    <div>Filter</div>
+    <div>
+        <input type='text' placeholder='search by name' />
+    </div>
   )
 }
+

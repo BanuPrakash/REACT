@@ -35,12 +35,28 @@ export default class CustomerList extends Component {
             "played_by": "David Schwimmer"
         }]
     }
+
+    deleteCustomer(id) {
+        let custs = this.state.customers.filter(c => c.id !== id);
+
+        // this.state.customers = custs; // update the state, reconcillation won't happen
+
+        // update the state
+        this.setState({
+            customers: custs
+        })
+
+        console.log(this.state.customers.length);
+    }
+
     render() {
         return (
             <div>
                 <Filter />
                 {
-                    this.state.customers.map(customer => <CustomerRow customer={customer}/>)
+                    this.state.customers.map(customer => <CustomerRow
+                        delEvent={(id) => this.deleteCustomer(id)}
+                        customer={customer} key={customer.id} />)
                 }
             </div>
         )
