@@ -1,6 +1,6 @@
 # REACT
 ```
-Banuprakash C
+Banu Prakash C
 Full Stack Architect,
 Co-founder Lucida Technologies Pvt Ltd.,
 Corporate Trainer,
@@ -14,5 +14,6 @@ Visual Studio Code.
 Chrome Web Browser
 NodeJS Latest LTS
 ```
+
 
 
