@@ -196,3 +196,26 @@ props --> mechanism to pass data/function to child component [like attributes of
  Each child in a list should have a unique "key" prop.
  https://legacy.reactjs.org/docs/reconciliation.html
  Reconciliation: whenever props, state changes React component is re-rendered.
+
+============
+
+Unit testing:
+JS has unit testing frameworks:
+1) Jasmine
+2) Mocha
+3) JEST
+
+Angular Test Bed is based on Jasmine
+React Testing Library is built on top of JEST
+https://testing-library.com/docs/react-testing-library/intro/
+
+getBy
+queryBy
+findBy
+screen.getByText(/Customer Application/i)
+screen.getByPlaceHolderText(/search by name/)
+
+screen.getAllByRole('button');
+
+Testing is AAA --> Assemble Action Assert
+one file is one test suite or use describe
