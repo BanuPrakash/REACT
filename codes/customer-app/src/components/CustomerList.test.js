@@ -18,4 +18,13 @@ describe("testing <CustomerList />", () => {
         btns = screen.getAllByRole('button');
         expect(btns.length).toBe(5);
     })
+
+    it("testing filter action <CustomerList />", () => {
+        render(<CustomerList />); // in memory render of DOM
+        // screen.debug();
+        let txtBox = screen.getByPlaceholderText(/search by name/);
+        fireEvent.change(txtBox,{"target": {"value":"Geller"}});
+        let btns = screen.getAllByRole('button');
+        expect(btns.length).toBe(2);
+    })
 })

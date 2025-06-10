@@ -219,3 +219,5 @@ screen.getAllByRole('button');
 
 Testing is AAA --> Assemble Action Assert
 one file is one test suite or use describe
+
+npm test -- --coverage --watchAll
