@@ -221,3 +221,9 @@ Testing is AAA --> Assemble Action Assert
 one file is one test suite or use describe
 
 npm test -- --coverage --watchAll
+
+<Menu title="Deliciuos Recipes" />
+
+=============
+
+Functional Components, hooks, context, life cycle methods...
