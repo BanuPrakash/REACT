@@ -136,4 +136,8 @@ index.js
 let {add, subtract} = require('./lib');
 ```
 npm run dev
-bundle.js 1.62 KiB
+
+asset bundle.js 7.08 KiB [emitted] (name: main)
+
+npm run prod
+asset bundle.js 1.29 KiB [emitted] [minimized] (name: main)
