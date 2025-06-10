@@ -148,3 +148,35 @@ JSX --> @babel/preset-react uses React.createElement() --> JS object
 JS object --> Renderers --> UI related DOM
 
 https://github.com/chentsulin/awesome-react-renderer
+
+=======================================
+
+npm i yarn -g
+yarn create react-app customer-app
+
+or
+
+npx yarn create react-app customer-app
+
+Creating React elements:
+1) React.createElement() core API
+2) Class Component
+    render() function returns JSX --> is passed to React.createElement()
+3) Functional Component
+a Function component is one which returns JSX --> is passed to React.createElement()
+
+Thinking in React:
+1) Atoms: These are the most basic building blocks of an interface, such as buttons, inputs, and labels. They are the smallest and most indivisible components.
+99% of the time we use ready made atoms
+https://react-spectrum.adobe.com/react-spectrum/index.html
+https://react-bootstrap.netlify.app/docs/components/accordion
+
+Kendo, PrimeReact, MUI, ...
+
+2) Molecules: These are groups of atoms bonded together to form a functional unit. For example, a search bar/ Card/ Table might be a molecule made up of an input atom and a button atom.
+50% of time we use ready made
+
+Organisms: These are more complex components made up of molecules and/or atoms. They form distinct sections of an interface, such as a navigation bar or a list of product cards.
+
+Templates: These are page-level layouts that define the structure of a page without specific content. They are composed of organisms and molecules.
+Pages: These are specific instances of templates with real content. They represent the final user interface that users see.
