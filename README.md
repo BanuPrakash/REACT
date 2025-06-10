@@ -141,3 +141,10 @@ asset bundle.js 7.08 KiB [emitted] (name: main)
 
 npm run prod
 asset bundle.js 1.29 KiB [emitted] [minimized] (name: main)
+
+
+JSX --> @babel/preset-react uses React.createElement() --> JS object
+
+JS object --> Renderers --> UI related DOM
+
+https://github.com/chentsulin/awesome-react-renderer
