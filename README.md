@@ -135,3 +135,5 @@ module.exports = {add, subtract}
 index.js
 let {add, subtract} = require('./lib');
 ```
+npm run dev
+bundle.js 1.62 KiB
