@@ -454,3 +454,5 @@ http://localhost:3000/details/4
 
 href-> server side rendering
 as={Link} --> client side rendering
+
+npm i
