@@ -390,3 +390,67 @@ Example: Counter --> count --> INCREMENT / DECREMENT, RESET actions
 
 React Context:
 React Context is a feature that allows data to be shared between components without explicitly passing props through each level of the component tree, which is often referred to as "prop drilling".
+
+===============
+
+Build a SPA using:
+1) react hooks
+2) react context
+3) react router dom
+4) axios for API call instead of fetch
+5) bootstrap for CSS
+6) react-bootstrap
+7) fontawesome for icons
+
+Part 2:
+update the code to typescript
+
+part 3:
+update the code to use Redux
+
+react router dom:
+1) Single Page Applications we need different URLS for different views/components
+http://amazon.com/mobiles
+http://amazon.com/mobiles/iPhone/16
+http://amazon.com/tvs
+http://amazon.com/cart ==> load cart component lazily
+
+Navigate between views <--  -->
+2) Lazy loading of Components
+By default we have bundle.js having all components --> FCP issue
+
+```
+<script defer src="/static/js/bundle.js"></script>
+```
+have only minimum components in "bundle.js"
+
+Components for the application:
+1) NavbarComponent
+2) ProductList
+3) ProductCard
+4) CartComponent
+5) CartRow
+6) Details
+7) Default
+8) ProductForm --> to add new Product
+
+yarn create react-app productapp
+
+productapp> npm i axios bootstrap react-bootstrap react-router-dom @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+----
+
+Bootstrap --> CSS Framework by Twitter --> styling --> RWD
+bootstrap uses 12 grid/ column system
+Each row is made of 12 columns
+
+<img src="somepic.png" class="col-sm-12 col-md-6 col-lg-4">
+
+Ionic Framework helps to migrate web react application to mobile application
+
+http://localhost:3000/cart
+http://localhost:3000/products
+http://localhost:3000/details/4
+
+href-> server side rendering
+as={Link} --> client side rendering

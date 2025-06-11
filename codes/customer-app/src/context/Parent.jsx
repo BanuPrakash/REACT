@@ -8,8 +8,8 @@ export default function Parent() {
 
     return (
         <div>
-            <PersonContext.Provider value={{name, age}}>
-                Parent
+            <PersonContext.Provider value={{name, age, setAge}}>
+                Parent {name}, {age}
                 <First />
             </PersonContext.Provider>
         </div>
