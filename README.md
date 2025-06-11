@@ -346,6 +346,7 @@ state:
                 amount: 9111
             }
         ],
+
         total: 12000.00
     }
 }
@@ -456,3 +457,14 @@ href-> server side rendering
 as={Link} --> client side rendering
 
 npm i
+
+<CartContextProvider>
+    <A />
+    <B />
+    <C />
+</CartContextProvider>
+
+<CartContextProvider>
+    <D />
+    <E />
+</CartContextProvider>
