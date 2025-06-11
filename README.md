@@ -271,7 +271,57 @@ componentWillUnmount() --> any logic before component is getting destroyed like 
 
 ========================
 
-Conditionally render component.
+Conditionally render component. --> shouldComponentUpdate()
 
+```
+    let product = {
+        "name": "Sony",
+        updateName: function(n) {
+            this.name = n;
+        }
+    }
 
+    product.updateName("LG"); // works
 
+    let ref = product.updateName; // get reference to function, context is lost
+    ref("Samsung"); // doesn't have the context "this"
+
+    solution:
+    let ref = product.updateName.bind(product);
+     ref("Samsung"); // works
+
+```
+
+Life Cycle methods are available only for class component.
+
+React.memo() --> memoization pattern where in it memoizes prev state and props.
+only if it changes will the component re-render.
+
+from React 16.8 version onwords prefer Functional components 
+98% of usage --> functional components
+
+```
+    @Component({
+        template: `<div></div>`,
+        styles: './styles.css'
+    })
+    public class ProductComponent {
+        name;
+        price;
+    }
+```
+
+What was not possible in Functional Components?
+1) state
+2) life-cycle methods
+
+React 16.8 introduced Hooks for functional components to have state and life-cycle methods.
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+React Hooks:
+1) useState
+2) useEffect
+3) useReducer
+4) useCallback
+5) useContext

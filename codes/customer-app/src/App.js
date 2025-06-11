@@ -1,14 +1,18 @@
 import './App.css';
-import ParentComponent from './chunks/ParentComponent';
+import ParentComponent from './chunks2/ParentComponent';
 import CustomerList from './components/CustomerList';
+import StateExample from './hooks/StateExample';
+import UsersComponent from './hooks/UsersComponent';
 
 // returns JSX
 function App() {
   return (
     <div className="App">
-      {/* <h1>Customer Application</h1>
-      <CustomerList /> */}
-      <ParentComponent />
+       <h1>Customer Application</h1>
+      {/* <CustomerList /> 
+      <ParentComponent /> */}
+      {/* <StateExample /> */}
+      <UsersComponent />
     </div>
   );
 }
