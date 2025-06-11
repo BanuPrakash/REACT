@@ -3,6 +3,7 @@ import ParentComponent from './chunks2/ParentComponent';
 import CustomerList from './components/CustomerList';
 import StateExample from './hooks/StateExample';
 import UsersComponent from './hooks/UsersComponent';
+import Counter from './reducer/Counter';
 
 // returns JSX
 function App() {
@@ -12,7 +13,8 @@ function App() {
       {/* <CustomerList /> 
       <ParentComponent /> */}
       {/* <StateExample /> */}
-      <UsersComponent />
+      {/* <UsersComponent /> */}
+      <Counter />
     </div>
   );
 }

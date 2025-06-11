@@ -325,3 +325,63 @@ React Hooks:
 3) useReducer
 4) useCallback
 5) useContext
+
+The useReducer Hook is similar to the useState Hook. It allows for custom state logic. 
+ more suited for managing state objects that contain multiple sub-values.
+--> prefer useReducer over useState if we need to conditionally mutate the state and mutation depends on previous state.
+
+state:
+```
+{
+    cart: {
+        cartItems: [
+            {
+                id: 6,
+                qty: 2,
+                amount: 8001
+            },
+            {
+                id: 9,
+                qty: 1,
+                amount: 9111
+            }
+        ],
+        total: 12000.00
+    }
+}
+```
+
+Action: Add to Cart --> payload --> should get existing cartItems and add new paylod
+get existing total and add new amount
+Increment: payload will just have "id"
+clear cart, remove item from cart
+
+=====
+useReducer:
+1) Action object
+``` 
+    {
+        type: 'ADD_TO_CART',
+        payload: {...}
+    }
+
+    {
+        type: 'INCREMENT',
+        payload: 4
+    }
+
+    {
+        type: 'CLEAR_CART'
+    }
+```
+
+2) reducer function
+
+```
+    function reducerFn(state, action) {
+        // perform operation based on action type
+        return new state;
+    }
+```
+
+Example: Counter --> count --> INCREMENT / DECREMENT, RESET actions
