@@ -385,3 +385,8 @@ useReducer:
 ```
 
 Example: Counter --> count --> INCREMENT / DECREMENT, RESET actions
+
+========
+
+React Context:
+React Context is a feature that allows data to be shared between components without explicitly passing props through each level of the component tree, which is often referred to as "prop drilling".

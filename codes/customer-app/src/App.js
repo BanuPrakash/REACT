@@ -1,6 +1,7 @@
 import './App.css';
 import ParentComponent from './chunks2/ParentComponent';
 import CustomerList from './components/CustomerList';
+import Parent from './context/Parent';
 import StateExample from './hooks/StateExample';
 import UsersComponent from './hooks/UsersComponent';
 import Counter from './reducer/Counter';
@@ -14,7 +15,8 @@ function App() {
       <ParentComponent /> */}
       {/* <StateExample /> */}
       {/* <UsersComponent /> */}
-      <Counter />
+      {/* <Counter /> */}
+      <Parent />
     </div>
   );
 }
