@@ -227,3 +227,51 @@ npm test -- --coverage --watchAll
 =============
 
 Functional Components, hooks, context, life cycle methods...
+
+Recap:
+```
+* NodeJS, webpack
+* babel-loader, ts-loader, css-loader, file-loader
+import Product from './Product'; // js file --> babel-loader
+import Product from './Product'; // ts file --> ts-loader
+import './styles/style.css'
+* @babel-core --> transpiler 
+* @babel/preset-env -> syntax transform and polyfills
+* @babel/preset-react --> JSX to JS object conversion
+looks for React.createElement()
+
+React:
+createElement(), functionalComponent , class component
+functionalComponent: function should start with UpperCase and return JSX
+class Component:
+1) extends Component
+2) render() method returns JSX
+3) can have state, life cycle methods
+
+RTL: unit testing react components.
+```
+=======
+
+Day 2:
+
+React class Component life-cycle methods
+Mounting Phase: 
+constructor() -> render() -> componentDidMount()
+initialize --> render JSX to JS --> Make API calls
+
+If we Make API calls in Constructor --> FCP issues --> First Contentful Paint --> Web Vitals
+
+Updating Phase:
+once state/props changes
+shouldComponentUpdate() --> true --> render() --> componentDidUpdate() [dependend API calls to be made]
+shouldComponentUpdate() --> false
+
+Unmounting:
+componentWillUnmount() --> any logic before component is getting destroyed like unsubscribe
+
+========================
+
+Conditionally render component.
+
+
+
