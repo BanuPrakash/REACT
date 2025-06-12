@@ -1,5 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 import cartReducer from '../reducer/cartReducer';
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 // to avoid props-drill, central placeholder for data
 let CartContext = createContext();
@@ -10,6 +12,7 @@ let initialState = {
     quantity: 0
 }
 export default function CartContextProvider(props) {
+    let navigate = useNavigate();
     let [state, dispatch] = useReducer(cartReducer, initialState);
     function addToCart(product) {
         dispatch({type:'ADD_TO_CART', payload: product})
@@ -20,7 +23,19 @@ export default function CartContextProvider(props) {
     }
 
     function clearCart() {
-         dispatch({type:'CLEAR_CART'})
+         //place order and clear cart items
+         // on successful login
+         // window.sessionStorage.setItem("user", "banu@gmail.com")
+         let order = {
+            customer: window.sessionStorage.getItem("user"),
+            items: state.cartItems,
+            total: state.total
+         }
+         axios.post("http://localhost:1234/orders",order).then(response => {
+            dispatch({type:'CLEAR_CART'});
+            navigate("/");
+         });
+         
     }
     return (
        <CartContext.Provider value={{...state, addToCart, clearCart, increment}}>
