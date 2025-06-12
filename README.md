@@ -533,7 +533,6 @@ React: view components
 
 React-Redux: bridge library
 
-dispatch({type:'ADD_TO_CART, payload: product})
-
-Resume @ 2:00
-
+yarn create react-app reduxapp
+cd reduxapp
+reduxapp> npm i redux react-redux
