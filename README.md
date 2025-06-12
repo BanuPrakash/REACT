@@ -453,18 +453,14 @@ http://localhost:3000/cart
 http://localhost:3000/products
 http://localhost:3000/details/4
 
-href-> server side rendering
-as={Link} --> client side rendering
 
-npm i
+===
 
-<CartContextProvider>
-    <A />
-    <B />
-    <C />
-</CartContextProvider>
+Day 3:
+cartReducer.js
+CartComponent.jsx
+CartRow.jsx
 
-<CartContextProvider>
-    <D />
-    <E />
-</CartContextProvider>
+JSON Server is a Node.js package that allows you to create a full fake REST API with zero coding. It's ideal for prototyping, testing, and developing applications when a backend API isn't ready yet.
+
+npx json-server --watch data.json --port 1234
