@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { CartContext } from '../context/CartContextProvider';
+import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
   let { id, title, price, category, image } = product;
@@ -12,7 +13,9 @@ export default function ProductCard({ product }) {
   return (
     <div className='col-sm-6 col-md-4 my-2'>
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={image} />
+        <Link to={`/details/${id}`}>
+           <Card.Img variant="top" src={image} />
+        </Link>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
