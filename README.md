@@ -497,3 +497,11 @@ Uncontrolled components can offer better performance for simple forms as they av
         )
     }
 ```
+
+TypeScript: statically typed language 
+
+yarn create react-app productapp-ts --template typescript
+ts-loader instead of babel-loader
+With Typescript --> All JS code is valid.
+
+productapp-ts> npm i bootstrap
