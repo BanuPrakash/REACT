@@ -505,3 +505,35 @@ ts-loader instead of babel-loader
 With Typescript --> All JS code is valid.
 
 productapp-ts> npm i bootstrap
+
+====
+
+Predicatable State Managment libraries:
+* Flux Architecure
+* Redux
+* Mobx
+* recoil
+
+Advantages over React Context:
+1) state management can be developed as a seperate module, can be integrated into backend, react, angular, vue, jQuery , ...
+2) Time travel debugging
+3) Good for Micro Frontend
+
+The Flux architecture is a design pattern for managing data flow in applications, particularly front-end web applications built with React. It was introduced by Facebook as an alternative to the traditional Model-View-Controller (MVC) architecture.
+
+https://www.youtube.com/watch?v=8pDqJVdNa44&t=17s
+
+Redux:
+1) Store: central place of truth --> state resides
+Application has only one store
+2) Reducers: (state, action) -> new state
+3) root reducer: combine reducers
+
+React: view components
+
+React-Redux: bridge library
+
+dispatch({type:'ADD_TO_CART, payload: product})
+
+Resume @ 2:00
+

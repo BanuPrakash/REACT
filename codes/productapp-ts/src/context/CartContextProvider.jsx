@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useContext, useReducer } from 'react'
 import cartReducer from '../reducer/cartReducer';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
@@ -12,6 +12,7 @@ let initialState = {
     quantity: 0
 }
 export default function CartContextProvider(props) {
+    // let {product} = useContext(ProductContext);
     let navigate = useNavigate();
     let [state, dispatch] = useReducer(cartReducer, initialState);
     function addToCart(product) {
