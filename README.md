@@ -464,3 +464,36 @@ CartRow.jsx
 JSON Server is a Node.js package that allows you to create a full fake REST API with zero coding. It's ideal for prototyping, testing, and developing applications when a backend API isn't ready yet.
 
 npx json-server --watch data.json --port 1234
+
+==========
+
+Controlled Component and UnControlled Components
+
+Controlled Components:
+State-Driven:
+The component's value is driven by React state.
+Full Control:
+Developers have complete control over the component's data, allowing for real-time validation and manipulation.
+
+```
+    function Sample() {
+        let [name, setName] = useState("");
+        return (
+            <input type="text" onChange={(evt) => setName(evt.target.value)} />
+        )
+    }
+```
+
+Uncontrolled Components:
+DOM-Driven:
+The component's value is managed by the DOM itself. 
+Performance:
+Uncontrolled components can offer better performance for simple forms as they avoid unnecessary re-renders.
+
+```
+    function Sample() {
+        return (
+            <input type="text" />
+        )
+    }
+```
