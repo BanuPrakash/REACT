@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 import cartReducer from '../reducer/cartReducer';
 
+// to avoid props-drill, central placeholder for data
 let CartContext = createContext();
 
 let initialState = {

@@ -18,7 +18,20 @@ export default function cartReducer(state, action) {
                 quantity: state.quantity + 1
             }
         case 'INCREMENT':
-            return state;
+            let prds = state.cartItems;
+            prds.forEach(product => {
+                if(product.id === action.payload) {
+                    product.qty++;
+                    product.amount = product.qty * product.price
+                }
+            });
+
+            let ttl = state.cartItems.map(p => p.amount).reduce( (v1, v2) => v1 + v2)
+            return {
+                cartItems: prds,
+                total : ttl,
+                quantity: state.quantity
+            };
         case 'DECREMENT':
             return state;
         case 'CLEAR_CART':

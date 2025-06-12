@@ -21,7 +21,9 @@ export default function ProductCard({ product }) {
         </Card.Body>
         <Card.Footer>
           Rs. {price} &nbsp;
-          <FontAwesomeIcon icon={faShoppingCart} color='blue' onClick={() => addToCart(product)}/>
+          <FontAwesomeIcon icon={faShoppingCart} 
+            color='blue' 
+            onClick={() => addToCart(product)}/>
           &nbsp;&nbsp;
           <FontAwesomeIcon icon={faHeart} color='red' />
           {/* <Button variant="primary">Add to Cart</Button> */}
