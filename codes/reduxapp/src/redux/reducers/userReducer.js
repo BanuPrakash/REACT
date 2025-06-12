@@ -3,4 +3,5 @@ export default function userReducer(state={
     displayName : 'George Mathew'
 }, action) {
     // 
+    return state;
 }
