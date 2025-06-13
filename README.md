@@ -536,3 +536,43 @@ React-Redux: bridge library
 yarn create react-app reduxapp
 cd reduxapp
 reduxapp> npm i redux react-redux
+
+===================
+
+https://redux-toolkit.js.org/
+
+RTK Opinionated:
+1) Devtools is configured by default
+2) Out of the box support for Async operations
+
+RTK Powerful:
+1) Takes inspiration from libraries like Immer and Autodux to let you write "mutative" immutable update logic
+https://immutable-js.com/
+https://immerjs.github.io/immer/
+Why not directly change the collection?
+
+=======
+
+Product Application
+Migrate from React Context to RTK 
+
+
+=======================
+
+Day 5:
+
+Migrate productapp from usage of Context to RTK.
+
+cloned productapp
+productapp-rtk> npm i
+productapp-rtk> npm i @reduxjs/toolkit react-redux
+productapp-rtk> npx json-server --watch data.json --port 1234
+
+Migrating
+1) remove reducer and context references in the project
+a) delete reducers and context folder
+b) index.js
+c) ProductCard.jsx
+d) NavbarComponent.jsx
+e) CartComponent.jsx
+f) CartRow.jsx
