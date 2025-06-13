@@ -681,3 +681,10 @@ const usersSlice = createSlice({
 RTK Query:
 Advanced data fetching tool -> supports caching, eager fetching, polling, CRUD operations, ...
 
+```
+    const {data} = useCustomerQuery(id, {
+        pollingInterval: 3000
+    })
+
+```
+
