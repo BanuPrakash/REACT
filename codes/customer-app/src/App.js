@@ -1,5 +1,5 @@
 import './App.css';
-import ParentComponent from './chunks2/ParentComponent';
+import ParentComponent from './callback/ParentComponent';
 import CustomerList from './components/CustomerList';
 import Parent from './context/Parent';
 import StateExample from './hooks/StateExample';
@@ -16,7 +16,8 @@ function App() {
       {/* <StateExample /> */}
       {/* <UsersComponent /> */}
       {/* <Counter /> */}
-      <Parent />
+      {/* <Parent /> */}
+      <ParentComponent />
     </div>
   );
 }

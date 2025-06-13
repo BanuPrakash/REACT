@@ -688,3 +688,17 @@ Advanced data fetching tool -> supports caching, eager fetching, polling, CRUD o
 
 ```
 
+Hooks:
+1) useState
+2) useReducer
+3) useEffect
+4) useContext
+5) useParams --> Path paramers
+http://abc.com/products/5 --> 5 is path parameter
+6) useSearchParams --> Query Params
+http://abc.com/products?page=2&size=20
+7) useSelector
+8) useDispatch
+9) useCallback
+
+
