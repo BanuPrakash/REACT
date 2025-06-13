@@ -611,3 +611,19 @@ export default function countReducer(state, action) {
     }
 }
 ```
+
+connect:
+
+``` 
+    function mapStateToProps(state) {
+        returns props
+    }
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(App)
+
+```
+
+useSelector hook: The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
+useDispatch: is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
