@@ -7,7 +7,7 @@ import fetchProducts from '../redux/api/ProductApi';
 
 export default function ProductList() {
   // let [products, setProducts] = useState();
-  let {list:products, status, error} = useSelector(state => state.products)
+  let { list: products, status, error } = useSelector(state => state.products)
   let dispatch = useDispatch();
   // componentDidMount
   useEffect(() => {
@@ -15,15 +15,15 @@ export default function ProductList() {
     // axios.get("http://localhost:1234/products")
     // .then(response => setProducts(response.data));
     dispatch(fetchProducts()); // dispatch Thunk
-  },[]);
+  }, []);
   return (
     <Container>
       <div className='row'>
-      {
-        (status === 'loading')?<h1>Loading Products ...</h1> : products.map(product => <ProductCard product={product} key={product.id}/>)
-       
-      }
-    </div>
+        {
+          (status === 'loading') ? <h1>Loading Products ...</h1> : products.map(product => <ProductCard product={product} key={product.id} />)
+
+        }
+      </div>
     </Container>
   )
 }
