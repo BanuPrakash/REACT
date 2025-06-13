@@ -563,7 +563,7 @@ Day 5:
 
 Migrate productapp from usage of Context to RTK.
 
-cloned productapp
+cloned productapp [without node_modules]
 productapp-rtk> npm i
 productapp-rtk> npm i @reduxjs/toolkit react-redux
 productapp-rtk> npx json-server --watch data.json --port 1234
@@ -576,3 +576,38 @@ c) ProductCard.jsx
 d) NavbarComponent.jsx
 e) CartComponent.jsx
 f) CartRow.jsx
+
+createSlice:
+A function that accepts an initial state, 
+an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
+
+```
+
+const initialState = { value: 0 } 
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state) => state.value++
+   ,
+    decrement: (state) => state.value--
+    ,
+    incrementByAmount: (state, action: PayloadAction) => {
+      state.value += action.payload
+    },
+  },
+})
+
+export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export default counterSlice.reducer
+
+export default function countReducer(state, action) {
+    switch(action.type) {
+        case 'INCREMENT':
+            return {
+                value: state.value + 1
+            }
+    }
+}
+```
