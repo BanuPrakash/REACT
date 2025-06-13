@@ -625,5 +625,55 @@ connect:
 
 ```
 
+
+
 useSelector hook: The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
 useDispatch: is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
+
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+Redux Async operations can be done using 3rd party middleware libraries:
+1) Thunk [sub-routine --> function]
+2) Saga
+
+dispatch(doTask()) --> Thunk
+dispatch({type:'CLEAR_CART'}) --> reducer, skip thunk
+
+========================
+
+```
+
+const fetchUsers = createAsyncThunk(
+  'users/fetch',
+  async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    return response.data
+  }
+)
+
+dispatch(fetchUsers())
+
+const initialState = {
+  entities: [],
+  loading: 'idle',
+  error: ''
+} 
+// Then, handle actions in your reducers:
+const usersSlice = createSlice({
+  name: 'users',
+  initialState,
+  reducers: {
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+  
+    }),
+     builder.addCase(fetchUsers.pending, (state, action) => {
+      
+    }),
+     builder.addCase(fetchUsers.rejected, (state, action) => {
+      
+    }),
+  },
+})
+```
