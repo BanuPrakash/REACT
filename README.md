@@ -678,4 +678,6 @@ const usersSlice = createSlice({
 })
 ```
 
+RTK Query:
+Advanced data fetching tool -> supports caching, eager fetching, polling, CRUD operations, ...
 

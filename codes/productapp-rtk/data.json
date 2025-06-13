@@ -1,5 +1,40 @@
 {
-  "customers": [],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Rachel Green",
+      "played_by": "Jennifer Aniston"
+    },
+    {
+      "id": 2,
+      "name": "Monica Geller",
+      "played_by": "Courteney Cox"
+    },
+    {
+      "id": 3,
+      "name": "Phoebe Buffay",
+      "played_by": "Lisa Kudrow"
+    },
+    {
+      "id": 4,
+      "name": "Chandler Bing",
+      "played_by": "Matthew Perry"
+    },
+    {
+      "id": 5,
+      "name": "Joey Tribbiani",
+      "played_by": "Matt LeBlanc"
+    },
+    {
+      "id": 6,
+      "name": "Ross Geller",
+      "played_by": "David Schwimmer"
+    },
+    {
+      "id": 7,
+      "name": "Harry"
+    }
+  ],
   "orders": [
     {
       "id": "8757",

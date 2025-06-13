@@ -9,6 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProductList from './components/ProductList'
 import Default from './components/Default'
 import ProductForm from './components/ProductForm'
+import CustomerList from './components/CustomerList';
 
 // Lazy loaded 
 const CartComponent = React.lazy(() => import('./components/CartComponent'))
@@ -26,6 +27,7 @@ function App() {
           </Suspense>
         } />
         <Route path='/form' element={<ProductForm />} />
+        <Route path='/customers' element={<CustomerList />} />
         <Route path='/details/:id' element={<Details />} />
         <Route path='/' element={<ProductList />} />
         <Route path='*' element={<Default />} />

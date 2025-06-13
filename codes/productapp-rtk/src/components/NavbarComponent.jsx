@@ -18,6 +18,7 @@ export default function NavbarComponent() {
             Cart <Badge>{quantity}</Badge>
           </Nav.Link>
           <Nav.Link as={Link} to="/form"> Form </Nav.Link>
+           <Nav.Link as={Link} to="/customers"> Customers </Nav.Link>
         </Nav>
       </Container>
     </Navbar>
